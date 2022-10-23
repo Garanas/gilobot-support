@@ -34,13 +34,13 @@ function StartBattleMusic()
     --#########################
     BattleStart = GameTick()
     
-    if MusicThread then KillThread(MusicThread) end
-    MusicThread = ForkThread(
+    if musicThread then KillThread(musicThread) end
+    musicThread = ForkThread(
         function ()
             while GameTick() - LastBattleNotify < PeaceTimer do
                 WaitSeconds(1)
             end
-            MusicThread = false --# clear MusicThread so that StartPeaceMusic doesn't kill us.
+            musicThread = false --# clear musicThread so that StartPeaceMusic doesn't kill us.
             StartPeaceMusic(true)
         end
     )
@@ -54,8 +54,8 @@ function StartPeaceMusic()
     BattleEventCounter = 0
     LastBattleNotify = GameTick()
 
-    if MusicThread then KillThread(MusicThread) end
-    MusicThread = ForkThread(
+    if musicThread then KillThread(musicThread) end
+    musicThread = ForkThread(
         function()
             if Music then
                 StopSound(Music) 

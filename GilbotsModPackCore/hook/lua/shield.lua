@@ -37,5 +37,4 @@ AntiArtilleryShield = ApplyGeneralChanges(AntiArtilleryShield)
 --#**
 UnitShield = ApplyGeneralChanges(UnitShield)
 
-
 end --(of non-destructive hook)

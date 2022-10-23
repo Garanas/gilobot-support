@@ -9,8 +9,7 @@
 --#**
 --#****************************************************************************
 
-local StatSliderMenu = 
-    import('/mods/GilbotsModPackCore/lua/slidercontrols/slidermenu.lua').StatSliderMenu
+
     
 --# Use this reference to check if a slider menu is already active
 --# so we don't show a new one till the previous one is gone.
@@ -24,6 +23,9 @@ local ReferenceToLastSliderMenu
 --#*  destroyed if the selection is changed. 
 --#**
 ToggleStatSliderMenu = function()
+
+    local StatSliderMenu = import('/mods/GilbotsModPackCore/lua/slidercontrols/slidermenu.lua').StatSliderMenu
+
     --# If there is already a slider control menu we can reference
     if ReferenceToLastSliderMenu and ReferenceToLastSliderMenu.IsMenuActive then
         --# Destroy menu and make sure nothing can reference it
@@ -59,6 +61,8 @@ end
 --#*  by pressing Alt-R (but only if there isn't one active already).
 --#**
 CreateStatSliderMenu = function()
+
+    local StatSliderMenu = import('/mods/GilbotsModPackCore/lua/slidercontrols/slidermenu.lua').StatSliderMenu
     
     if ReferenceToLastSliderMenu and ReferenceToLastSliderMenu.IsMenuActive then
         --# Menu already active when Alt-R pressed,

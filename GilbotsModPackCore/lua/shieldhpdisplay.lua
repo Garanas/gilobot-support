@@ -9,8 +9,6 @@
 --#**
 --#****************************************************************************
 
-local UnitText = 
-    import('/mods/GilbotsModPackCore/lua/unittext.lua')
    
 --#*
 --#*  Gilbot-X says:
@@ -48,6 +46,7 @@ ToggleShieldStrengthDisplay = function()
               }
             )
         end
+        local UnitText = import('/mods/GilbotsModPackCore/lua/unittext.lua')
         
         ForkThread(
             function(unitEntityIdListArg)

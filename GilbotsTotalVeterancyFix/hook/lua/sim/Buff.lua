@@ -23,6 +23,9 @@ local GilbotsModIsActive = GetActiveModLocation("12345678-2050-4bf6-9236-451244f
 --#*  there is a duration.
 --#**
 function ApplyBuff(unit, buffName, instigator)
+
+    reprsl(unit, true)
+
 	--# Start with safety check
     if unit:IsDead() then return end
     

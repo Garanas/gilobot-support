@@ -289,6 +289,7 @@ local resultClass = Class(baseClassArg) {
     OnStartBuild = function(self, unitBeingBuilt, order )
         self:ChangeBlinkingLights('Yellow')
         baseClassArg.OnStartBuild(self, unitBeingBuilt, order )
+        self.UnitBeingBuilt = unitBeingBuilt
         self.BuildingUnit = true
         if order ~= 'Upgrade' then
             ChangeState(self, self.BuildingState)

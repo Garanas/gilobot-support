@@ -6,10 +6,6 @@
 --#**  Summary  :  Area Commands mod code
 --#**
 --#****************************************************************************
-
-local Bitmap = import('/lua/maui/bitmap.lua').Bitmap
-local UIUtil = import('/lua/ui/uiutil.lua')
-local GilbotUtils = import('/mods/GilbotsModPackCore/lua/utils.lua')
     
 local mouseStartWorldPos = false
 local mouseEndWorldPos = false
@@ -141,6 +137,7 @@ function DragFunction()
         currentCommand = commandTable[commandTableindex][1]
 
         if not marker then
+            local Bitmap = import('/lua/maui/bitmap.lua').Bitmap
             marker = Bitmap(GetFrame(0))
             local mouseStartScreenPos = GetMouseScreenPos()
             mouseStartWorldPos = GetMouseWorldPos()

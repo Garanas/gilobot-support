@@ -8,13 +8,6 @@
 --#**              and autotoggle priority order changes
 --#**
 --#****************************************************************************
-
-local GilbotUtils = 
-    import('/mods/GilbotsModPackCore/lua/utils.lua')
-local UnitText = 
-    import('/mods/GilbotsModPackCore/lua/unittext.lua')
-local OnScreenUnitsFile = 
-    import('/mods/GilbotsModPackCore/lua/onscreenunitdisplay.lua')
    
 --# These variables are local to file
 --# but used in more than one function instance     
@@ -31,7 +24,6 @@ local ManageDisplayThreadLaunched = {}
 --#*  as USER state code.
 --#**
 local AddDisplayToOnScreenUnits = {
-
     --#*
     --#*  Gilbot-X says:
     --#*
@@ -40,6 +32,9 @@ local AddDisplayToOnScreenUnits = {
     --#*  This is USER state code.
     --#**
     AutoToggleDisplay = function(onScreenUnitArrayArg)
+
+        local UnitText = import('/mods/GilbotsModPackCore/lua/unittext.lua')
+
         local syncVar = 'AutoToggleDisplay'
         --# For each item in the onscreen unit sync list
         for _, vOnScreenEntityId in onScreenUnitArrayArg do
@@ -68,6 +63,7 @@ local AddDisplayToOnScreenUnits = {
     --#*  This is USER state code.
     --#**
     NetworkDisplayText = function(onScreenUnitArrayArg)
+        local UnitText = import('/mods/GilbotsModPackCore/lua/unittext.lua')
         local syncVar = 'NetworkDisplayText'
         --# For each item in the onscreen unit sync list
         for _, vOnScreenEntityId in onScreenUnitArrayArg do
@@ -99,11 +95,17 @@ local AddDisplayToOnScreenUnits = {
 --#*  This is USER state code.
 --#**
 local ManageDisplay = function()
+
+    local OnScreenUnitsFile = import('/mods/GilbotsModPackCore/lua/onscreenunitdisplay.lua')
+    local UnitText = import('/mods/GilbotsModPackCore/lua/unittext.lua')
+    
     --# ArmyID is used twice, so cache 
     local myArmyId = GetFocusArmy()
     --# Make sure only one of these threads can run 
     --# (unless player is using chreats to change focus army ingame)
     ManageDisplayThreadLaunched[myArmyId] = true
+
+    local GilbotUtils = import('/mods/GilbotsModPackCore/lua/utils.lua')
     local myACU = GilbotUtils.GetCommanderFromArmyId(myArmyId)
     
     --# This thread depends on ACU for syncing
@@ -147,6 +149,8 @@ end
 --#*  Make sure that Num Lock is active on your keyboard.
 --#**
 ToggleDisplay = function(newDisplayTypeArg, overrideArg)
+
+    local UnitText = import('/mods/GilbotsModPackCore/lua/unittext.lua')
     
     --# Initialise this table with an entry for each army
     --# if this is the first time it is being run

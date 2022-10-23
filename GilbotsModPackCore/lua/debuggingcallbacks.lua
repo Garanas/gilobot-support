@@ -15,8 +15,6 @@
 --#**  
 --#***************************************************************************
 
-local UnitText = 
-    import('/mods/GilbotsModPackCore/lua/unittext.lua')
    
 --#*
 --#*  Gilbot-X says:  

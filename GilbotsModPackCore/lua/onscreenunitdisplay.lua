@@ -8,9 +8,6 @@
 --#**            
 --#****************************************************************************
 
-local GilbotUtils = 
-    import('/mods/GilbotsModPackCore/lua/utils.lua')
-
 --#*
 --#*  Gilbot-X says:
 --#*
@@ -21,6 +18,9 @@ local GilbotUtils =
 --#*  The 3rd part is the function in ACUCommon.lua.
 --#**
 GiveSIMScreenBoundsCallback = function(data)
+
+    local GilbotUtils = import('/mods/GilbotsModPackCore/lua/utils.lua')
+
     local myACU = GilbotUtils.GetFocusArmyACU()
     if myACU then
         myACU:ReceiveACUMessage_SyncOnScreenUnitEntityList(data.ScreenBounds, data.ZoomedOutTooFar)

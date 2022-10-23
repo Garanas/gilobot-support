@@ -91,6 +91,8 @@ local resultClass = Class(BaseClass) {
         self:AddOnCapturedCallback(self.CleanUpAdjacencyOnDeath)
         
     end,
+
+    ApplyAdjacencyBuffs = function() end,
     
     
     --#*
@@ -613,7 +615,7 @@ local resultClass = Class(BaseClass) {
                         local buffAffects = buffDef.Affects
                         if buffAffects[bonusTypeName] then 
                             resultAdd = buffAffects[bonusTypeName].Add
-                            resultMult = buffAffects[bonusTypeName].Mult
+                            resultMult = buffAffects[bonusTypeName].Mult or 1.0
                             --# The self.ModifierDifference key is set by stat slider controls
                             --# so we don't actually have to change the blueprint values
                             if self.ModifierDifference then 

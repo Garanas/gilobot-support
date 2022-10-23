@@ -16,11 +16,6 @@
 --#***************************************************************************
 
 
-local UnitText = 
-    import('/mods/GilbotsModPackCore/lua/unittext.lua')
-local NumberToStringWith2DPMax = 
-    import('/mods/GilbotsModPackCore/lua/utils.lua').NumberToStringWith2DPMax 
-
 --#*
 --#*  Gilbot-X says:  
 --#*
@@ -59,6 +54,9 @@ end
 --#*  unit (as its custom name) for 3 seconds.
 --#** 
 CalculateRateOfFireMessage = function(unitArg)
+
+    local NumberToStringWith2DPMax = import('/mods/GilbotsModPackCore/lua/utils.lua').NumberToStringWith2DPMax 
+
     local weaponCount = unitArg:GetWeaponCount()
     if weaponCount == 0 then return end
     local messageText = {}
@@ -112,6 +110,9 @@ end
 --#**
 ToggleRateOfFireDisplay = function()
     
+    local UnitText = 
+    import('/mods/GilbotsModPackCore/lua/unittext.lua')
+
     local unitsSelected = GetSelectedUnits()
    --# If at least one unit is selected
     if unitsSelected 

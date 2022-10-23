@@ -61,6 +61,8 @@ local BaseClass = MakeExtraAltOrdersUnit(
     startingAltOrdersListArg
 )
   
+LOG("Did a thing!")
+LOG("Hello!")
   
 URL0001 = Class(BaseClass, ACUKnowledge) {
 
