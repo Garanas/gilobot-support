@@ -1,0 +1,27 @@
+--# Seraphim T1 Mass Extractor
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="xsb1103", 
+    Display = {
+        ActiveAnimationSettings = {
+            PackedAtStart = true,
+            UpgradesFromPacked = true,
+        },
+    },
+    --# The commented out keys and values 
+    --# are examples of how the extra keys in the 
+    --# blueprint file work.
+    Economy = {
+        --AllowManualUpgradeAt = 8,
+        --AutoUpgradeAt = 12,
+        --BuildRate = 5,
+        --MassProductionGrowthConstant = 1.05,
+        --MaxProductionPerSecondMass = 12,
+        --MaintenanceConsumptionPerSecondEnergy = 2,
+        --# These next two keys are used to stop upgrading 
+        --# from consuming too much power
+        --MaxEnergyUse = 50,
+        --MaxMassUse = 2,
+        --PassOnTimeBonus = true,
+    },
+}

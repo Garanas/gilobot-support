@@ -1,0 +1,24 @@
+--# UEF T1 MeX
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="ueb1103", 
+    Defense = {
+        DLSDamageReductionFactor = 0.5,
+    },
+    Display = {
+        DLSEffectSettings = {
+            Sparks = {
+                Bone = 'UEB1103', 
+                Scale = 1,
+                LODCutoff = 40,
+                Offset = { x=0, y=0, z=0},
+            },
+            Flash = {
+                Bone = 'UEB1103', 
+                Scale = 2,
+                LODCutoff = 50,
+                Offset = { x=0, y=0, z=0},
+            },
+        },
+    },
+}

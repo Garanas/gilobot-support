@@ -1,0 +1,530 @@
+
+#Aeon ACU
+UnitBlueprint {
+  BlueprintId="ual0001",
+    Buffs = {
+        Any	=	{
+        	 COMMANDVETERANCYPRODUCTION = {
+	    		MaxLevel = 5,
+        	 	Stacks = 'ALWAYS',
+			    Duration = -1,
+			    Affects = {
+			        EnergyProductionBuf = {
+			            Add = 200,
+			            Mult = 1,
+			        },
+			        MassProductionBuf = {
+			            Add = 2,
+			            Mult = 1,
+			        },
+	    		},
+    		},
+        },
+        
+  		Regen = {
+        	Level1 = 3,
+        },
+    },
+    Weapon = {
+        {
+
+            DamageRadius = 1.0,
+            DamageFriendly = false,
+        },
+        {
+            
+        },
+        {
+            
+        },
+    },
+    Enhancements = {
+        AdvancedEngineering = {
+            NewBuildRate = 20,
+            NewHealth = 3000,
+            NewRegenRate = 20,
+        },
+        CrysalisBeam = {
+            NewMaxRadius = 15,
+        },
+        EnhancedSensors = {
+            NewOmniRadius = 74,
+            NewVisionRadius = 24,
+        },
+        HeatSink = {
+            NewRateOfFire = 1,
+        },
+        ResourceAllocation = {
+            ProductionPerSecondEnergy = 2700,
+            ProductionPerSecondMass = 18,
+        },
+        ResourceAllocationAdvanced = {
+            ProductionPerSecondEnergy = 5400,
+            ProductionPerSecondMass = 36,
+        },
+        T3Engineering = {
+            NewBuildRate = 80,
+            NewRegenRate = 40,
+        },
+        
+    },
+  
+  Merge=true,
+}
+
+#Cybran ACU
+UnitBlueprint {
+  BlueprintId="url0001",
+  Buffs = {
+        Any	=	{
+        	 COMMANDVETERANCYPRODUCTION = {
+	    		MaxLevel = 5,
+        	 	Stacks = 'ALWAYS',
+			    Duration = -1,
+			    Affects = {
+			        EnergyProductionBuf = {
+			            Add = 200,
+			            Mult = 1,
+			        },
+			        MassProductionBuf = {
+			            Add = 2,
+			            Mult = 1,
+			        },
+	    		},
+    		},
+        },
+        
+  		Regen = {
+        	Level1 = 3,
+        },
+    },
+    Weapon = {
+        {
+            DamageRadius = 1.0,
+            DamageFriendly = false,
+        },
+        {
+            
+        },
+        {
+            
+        },
+        {
+            DamageRadius = 1.0,
+            DamageFriendly = false,
+        },
+        
+    },
+    Enhancements = {
+        AdvancedEngineering = {
+            NewBuildRate = 20,
+            NewHealth = 3500,
+            NewRegenRate = 20,
+        },
+        CoolingUpgrade = {
+            NewMaxRadius = 8,
+            NewRateOfFire = 1,
+        },
+        T3Engineering = {
+            NewBuildRate = 80,
+            NewHealth = 7000,
+            NewRegenRate = 40,
+        },
+    },
+  
+  Merge=true,
+}
+
+UnitBlueprint {
+	BlueprintId="url0301",
+	Buffs = {
+        Any	=	{
+        	 COMMANDVETERANCYPRODUCTION = {
+	    		MaxLevel = 5,
+        	 	Stacks = 'ALWAYS',
+			    Duration = -1,
+			    Affects = {
+			        EnergyProductionBuf = {
+			            Add = 200,
+			            Mult = 1,
+			        },
+			        MassProductionBuf = {
+			            Add = 2,
+			            Mult = 1,
+			        },
+	    		},
+    		},
+        },
+        
+  		Regen = {
+        	Level1 = 3,
+        },
+    },
+    Weapon = {
+        {
+
+            DamageRadius = 1.0,
+            DamageFriendly = false,
+        },
+        {
+            Buffs = {
+                {
+                    Add = {
+                        OnImpact = true,
+                    },
+                    AppliedToTarget = true,
+                    BuffType = 'STUN',
+                    Duration = 1,
+                    Radius = 3,
+                    TargetAllow = 'MOBILE',
+                    TargetDisallow = 'EXPERIMENTAL,COMMAND',
+                },
+            },
+            FiringTolerance = 180,
+        },
+        {
+            
+        },
+    },
+    Enhancements = {
+        FocusConvertor = {
+            NewDamageMod = 250,
+        },
+        Switchback = {
+            NewBuildRate = 80,
+        },
+    },
+  
+  Merge=true,
+}
+
+#Aeon SCU
+UnitBlueprint {
+  BlueprintId="ual0301",
+  Buffs = {
+        Any	=	{
+        	 COMMANDVETERANCYPRODUCTION = {
+	    		MaxLevel = 5,
+        	 	Stacks = 'ALWAYS',
+			    Duration = -1,
+			    Affects = {
+			        EnergyProductionBuf = {
+			            Add = 200,
+			            Mult = 1,
+			        },
+			        MassProductionBuf = {
+			            Add = 2,
+			            Mult = 1,
+			        },
+	    		},
+    		},
+        },
+        
+  		Regen = {
+        	Level1 = 3,
+        },
+    },
+    Weapon = {
+        {
+            DamageRadius = 1.0,
+            DamageFriendly = false,
+        },
+        {
+            
+        },
+    },
+    Enhancements = {
+        EngineeringFocusingModule = {
+            NewBuildRate = 30,
+        },
+        StabilitySuppressant = {
+            NewDamageRadiusMod = 2,
+        },
+        SystemIntegrityCompensator = {
+            NewRegenRate = 300,
+        },
+    },
+  
+  Merge=true,
+}
+
+#Sera ACU
+UnitBlueprint {
+	BlueprintId="xsl0001",
+
+    Buffs = {
+        Any	=	{
+        	 COMMANDVETERANCYPRODUCTION = {
+	    		MaxLevel = 5,
+        	 	Stacks = 'ALWAYS',
+			    Duration = -1,
+			    Affects = {
+			        EnergyProductionBuf = {
+			            Add = 200,
+			            Mult = 1,
+			        },
+			        MassProductionBuf = {
+			            Add = 2,
+			            Mult = 1,
+			        },
+	    		},
+    		},
+        },
+    },
+    Weapon = {
+        {
+
+            DamageRadius = 1.0,
+            DamageFriendly = false,
+        },
+        {
+        },
+        {
+        },
+        {
+        },
+    },
+    Enhancements = {
+        AdvancedEngineering = {
+            NewBuildRate = 20,
+            NewRegenRate = 20,
+        },
+        BlastAttack = {
+            NewDamageRadius = 1,
+        },
+        RateOfFire = {
+            NewMaxRadius = 8,
+            NewRateOfFire = 1,
+        },
+        T3Engineering = {
+            NewBuildRate = 80,
+            NewHealth = 4000,
+            NewRegenRate = 40,
+        },
+       
+    },
+  
+  Merge=true,
+}
+
+#Sera SCU
+UnitBlueprint {
+	BlueprintId="xsl0301",
+    Buffs = {
+        Any	=	{
+        	 COMMANDVETERANCYPRODUCTION = {
+	    		MaxLevel = 5,
+        	 	Stacks = 'ALWAYS',
+			    Duration = -1,
+			    Affects = {
+			        EnergyProductionBuf = {
+			            Add = 200,
+			            Mult = 1,
+			        },
+			        MassProductionBuf = {
+			            Add = 2,
+			            Mult = 1,
+			        },
+	    		},
+    		},
+        },
+    },
+    Weapon = {
+        {
+
+            DamageRadius = 1.0,
+            DamageFriendly = false,
+        },
+        {
+        },
+        {
+        },
+        {
+        },
+    },
+    Enhancements = {
+        EngineeringThroughput = {
+           NewBuildRate = 30,
+        },
+        EnhancedSensors = {
+            NewOmniRadius = 46,		#72-26
+            NewVisionRadius = 14, #40-16
+        },
+     },
+  
+  Merge=true,
+}
+
+
+#Uef SCU
+UnitBlueprint {
+	BlueprintId="uel0301",
+    Buffs = {
+        Any	=	{
+        	 COMMANDVETERANCYPRODUCTION = {
+	    		MaxLevel = 5,
+        	 	Stacks = 'ALWAYS',
+			    Duration = -1,
+			    Affects = {
+			        EnergyProductionBuf = {
+			            Add = 200,
+			            Mult = 1,
+			        },
+			        MassProductionBuf = {
+			            Add = 2,
+			            Mult = 1,
+			        },
+	    		},
+    		},
+        },
+        
+  		Regen = {
+        	Level1 = 3,
+        },
+    },
+    Weapon = {
+        {
+
+            DamageRadius = 1.0,
+            DamageFriendly = false,
+        },
+        {
+        },
+    },
+    Enhancements = {
+        AdvancedCoolingUpgrade = {
+            NewRateOfFire = 1.5,
+        },
+        HighExplosiveOrdnance = {
+            NewDamageRadius = 1.5,
+        },
+        SensorRangeEnhancer = {
+            NewOmniRadius = 56,
+            NewVisionRadius = 14,
+        },
+    },
+  Merge=true,
+}
+
+#Uef ACU
+UnitBlueprint {
+  	BlueprintId="uel0001",
+    Buffs = {
+       Any	=	{
+        	 COMMANDVETERANCYPRODUCTION = {
+	    		MaxLevel = 5,
+        	 	Stacks = 'ALWAYS',
+			    Duration = -1,
+			    Affects = {
+			        EnergyProductionBuf = {
+			            Add = 200,
+			            Mult = 1,
+			        },
+			        MassProductionBuf = {
+			            Add = 2,
+			            Mult = 1,
+			        },
+	    		},
+    		},
+        },
+        
+  		Regen = {
+        	Level1 = 3,
+        },
+    },
+    Weapon = {
+        {
+
+            DamageRadius = 1.0,
+            DamageFriendly = false,
+        },
+        {
+        },
+        {
+            
+        },
+    },
+    Enhancements = {
+        AdvancedEngineering = {
+            NewBuildRate = 20,
+            NewHealth = 3000,
+            NewRegenRate = 20,
+        },
+        HeavyAntiMatterCannon = {
+            NewMaxRadius = 8,
+            ZephyrDamageMod = 100,
+        },
+        T3Engineering = {
+            NewBuildRate = 80,
+            NewHealth = 6000,
+            NewRegenRate = 40,
+        },
+    },
+  	
+  Merge=true,
+}
+
+
+#Cybran SCU
+UnitBlueprint {
+	BlueprintId="url0301",
+    Buffs = {
+        Any	=	{
+        	 COMMANDVETERANCYPRODUCTION = {
+	    		MaxLevel = 5,
+        	 	Stacks = 'ALWAYS',
+			    Duration = -1,
+			    Affects = {
+			        EnergyProductionBuf = {
+			            Add = 200,
+			            Mult = 1,
+			        },
+			        MassProductionBuf = {
+			            Add = 2,
+			            Mult = 1,
+			        },
+	    		},
+    		},
+        },
+        
+  		Regen = {
+        	Level1 = 3,
+        },
+    },
+    Weapon = {
+        {
+
+            DamageRadius = 1.0,
+            DamageFriendly = false,
+        },
+        {
+            Buffs = {
+                {
+                    Add = {
+                        OnImpact = true,
+                    },
+                    AppliedToTarget = true,
+                    BuffType = 'STUN',
+                    Duration = 1,
+                    Radius = 3,
+                    TargetAllow = 'MOBILE',
+                    TargetDisallow = 'EXPERIMENTAL,COMMAND',
+                },
+            },
+            FiringTolerance = 180,
+        },
+        {
+            
+        },
+    },
+    Enhancements = {
+        FocusConvertor = {
+            NewDamageMod = 250,
+        },
+        Switchback = {
+            NewBuildRate = 30,
+        },
+    },
+  
+  Merge=true,
+}

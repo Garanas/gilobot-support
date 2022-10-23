@@ -1,0 +1,51 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId='uel0001',
+    Enhancements = {
+        T3Engineering = {
+            CannotDowngradeToPrerequisites = true,
+        },
+        EngineeringThroughput = {
+            BuildCostEnergy = 450000*2,
+            BuildCostMass = 12300*2,
+            BuildTime = 9000*2,
+            BuildableCategoryAdds = 'BUILTBYTIER4COMMANDER UEF',
+            Icon = 'gilbot/efm',
+            Name = 'Full Engineering Suite',
+            NewBuildRate = 210,
+            NewHealth = 5000,
+            NewRegenRate = 20,
+            Prerequisite = 'T3Engineering',
+            CannotDowngradeToPrerequisites = true,
+            Slot = 'LCH',
+            ShowBones = {
+                'Left_Upgrade',
+            },
+            UpgradeEffectBones = {
+                'Left_Upgrade',
+                'Left_Upgrade_Muzzle',
+            },
+            UpgradeUnitAmbientBones = {
+                'Body',
+            },
+        },
+        EngineeringThroughputRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 0.1,
+            HideBones = {
+                'Left_Upgrade',
+            },
+            Icon = 'gilbot/efm',
+            Name = 'Remove Full Engineering Suite',
+            Prerequisite = 'EngineeringThroughput',
+            RemoveEnhancements = {
+                'AdvancedEngineering',
+                'T3Engineering',
+                'EngineeringThroughput',
+                'EngineeringThroughputRemove',
+            },
+            Slot = 'LCH',
+        },
+    },
+}

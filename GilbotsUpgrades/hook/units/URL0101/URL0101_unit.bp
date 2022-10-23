@@ -1,0 +1,27 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId="url0101",
+    --# Added upgradeable ability
+    Display = {
+        Abilities = {
+            'Upgradeable',
+        },
+    },
+    Economy = {
+        --# The high build rate adjusts rate of power
+        --# used to enhance.
+        BuildRate = 10,
+        --# This is what it can build (upgrade to)
+        BuildableCategory = {
+            'url0101b',
+        },
+    },
+    General = {
+        UpgradesTo = 'url0101b',
+    },
+    Intel = {
+        --# GPG forgot to put this in
+        --# when they moved to FA.
+        ReactivateTime=5,
+    },
+}

@@ -1,0 +1,25 @@
+--# Seraphim HCPP
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="xsb1102", 
+    Display = {
+        LoopingAnimation = '/units/XSB1102/XSB1102_aloop.sca',
+        PauseableActiveEffects = {
+            Layers = {
+                Land = {
+                    Effects = {'/effects/emitters/hydrocarbon_heatshimmer_01_emit.bp',},
+                    Scale = 0.75/5,
+                    ScaleCap = 0.75*5,                
+                },
+                Seabed = {
+                    Effects = {'/effects/emitters/underwater_idle_bubbles_01_emit.bp',},
+                    Scale =  3/5,
+                    ScaleCap =  3*5,
+                },
+            },
+            Bones = {'Exhaust01', 'Exhaust02', 'Exhaust03'},
+            Offset = { x=0, y=-.2, z=1},
+            LODCutoff = 50,
+        },
+    },
+}

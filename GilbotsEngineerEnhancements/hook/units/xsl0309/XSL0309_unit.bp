@@ -1,0 +1,69 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId='xsl0309',
+    Display = {
+        Abilities = {
+            '<LOC ability_customizable>Customizable',
+        },
+    },
+    Enhancements = {
+        AdvancedEngineering = {
+            BuildCostEnergy = 96000,  --1600\sec
+            BuildCostMass = 480, -- 8\sec
+            BuildTime = 900, -- 600 Ticks = 60 secs 
+            Icon = 'efm',
+            Name = 'Increase build rate',
+            Slot = 'Back',
+            UpgradeUnitAmbientBones = {
+                'XSL0309',
+            },
+        },
+        AdvancedEngineeringRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 0.1,
+            Icon = 'efm',
+            Name = 'Restore previous build rate',
+            Prerequisite = 'AdvancedEngineering',
+            RemoveEnhancements = {
+                'AdvancedEngineering',
+                'AdvancedEngineeringRemove',
+            },
+            Slot = 'Back',
+        },
+        AdvancedEngineering2 = {
+            BuildCostEnergy = 182000,  --3200\sec
+            BuildCostMass = 960, -- 16\sec
+            BuildTime = 1800, -- 600 Ticks = 60 secs 
+            Icon = 'efm',
+            Name = 'Increase build rate',
+            Prerequisite = 'AdvancedEngineering',
+            Slot = 'Back',
+            UpgradeUnitAmbientBones = {
+                'XSL0309',
+            },
+        },
+        AdvancedEngineering2Remove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 0.1,
+            Icon = 'efm',
+            Name = 'Restore previous build rate',
+            Prerequisite = 'AdvancedEngineering2',
+            RemoveEnhancements = {
+                'AdvancedEngineering',
+                'AdvancedEngineering2',
+                'AdvancedEngineering2Remove',
+            },
+            Slot = 'Back',
+        },
+        Slots = {
+            Back = {
+                name = '<LOC _Back>',
+                x = -2,
+                y = -5,
+            },
+        },
+    },
+    
+}

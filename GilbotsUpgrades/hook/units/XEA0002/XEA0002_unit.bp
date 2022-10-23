@@ -1,0 +1,308 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId='xea0002',
+    BuildIconSortPriority = 10,
+    Categories = {
+        'PRODUCTFA',
+        'SELECTABLE',
+        'UEF',
+        'MOBILE',
+        'AIR',
+        'HIGHALTAIR',
+        'TECH3',
+        'SATELLITE',
+        'VISIBLETORECON',
+        'RECLAIMABLE',
+        'UNTARGETABLE',
+    },
+    CollisionOffsetY = -0.65,
+    Defense = {
+        AirThreatLevel = 0,
+        ArmorType = 'Normal',
+        EconomyThreatLevel = 0,
+        Health = 100,
+        MaxHealth = 100,
+        RegenRate = 0,
+        SubThreatLevel = 0,
+        SurfaceThreatLevel = 0,
+    },
+    Description = '<LOC xea0002_desc>Defense Satellite',
+    Economy = {
+        BuildCostEnergy = 400000, --1000 energy/s
+        BuildCostMass = 4000, --10 mass/s
+        BuildTime = 16000,
+    },
+    Enhancements = {
+        VisionRadius1 = {
+            BuildCostEnergy = 100000, --1000 energy/s
+            BuildCostMass = 1000, --10 mass/s
+            BuildTime = 100,
+            Icon = 'gilbot/satv1',
+            Name = 'Line of Sight Bonus 1',
+            VisionRadiusMultiplier = 2,
+            Slot = 'LCH',
+            UpgradeUnitAmbientBones = {
+                'XEA0002',
+            },
+            UpgradeEffectBones = {
+                'Turret',
+            },
+        },
+        VisionRadius1Remove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/satv1',
+            Name = 'Remove Line of Sight Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'VisionRadius1',
+            RemoveEnhancements = {
+                'VisionRadius1',
+                'VisionRadius1Remove',
+            },
+        },
+        VisionRadius2 = {
+            BuildCostEnergy = 100000, --1000 energy/s
+            BuildCostMass = 1000, --10 mass/s
+            BuildTime = 100,
+            Icon = 'gilbot/satv2',
+            Name = 'Line of Sight Bonus 2',
+            Prerequisite = 'VisionRadius1',
+            CannotDowngradeToPrerequisites = true,
+            VisionRadiusMultiplier = 3,
+            Slot = 'LCH',
+            UpgradeUnitAmbientBones = {
+                'XEA0002',
+            },
+            UpgradeEffectBones = {
+                'Turret',
+            },
+        },
+        VisionRadius2Remove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/satv2',
+            Name = 'Remove Line of Sight Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'VisionRadius2',
+            RemoveEnhancements = {
+                'VisionRadius2',
+                'VisionRadius2Remove',
+            },
+        },
+        VisionRadius3 = {
+            BuildCostEnergy = 100000, --1000 energy/s
+            BuildCostMass = 1000, --10 mass/s
+            BuildTime = 100,
+            Icon = 'gilbot/satv3',
+            Name = 'Line of Sight Bonus 3',
+            Prerequisite = 'VisionRadius2',
+            CannotDowngradeToPrerequisites = true,
+            VisionRadiusMultiplier = 4,
+            Slot = 'LCH',
+            UpgradeUnitAmbientBones = {
+                'XEA0002',
+            },
+            UpgradeEffectBones = {
+                'Turret',
+            },
+        },
+        VisionRadius3Remove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/satv3',
+            Name = 'Remove Line of Sight Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'VisionRadius3',
+            RemoveEnhancements = {
+                'VisionRadius2',
+                'VisionRadius3',
+                'VisionRadius3Remove',
+            },
+        },
+        BeamWeapon1 = {
+            BuildCostEnergy = 100000, --1000 energy/s
+            BuildCostMass = 1000, --10 mass/s
+            BuildTime = 100,
+            Icon = 'gilbot/satw1',
+            Name = 'Beam Weapon Bonus 1',
+            Slot = 'Back',
+            UpgradeUnitAmbientBones = {
+                'XEA0002',
+            },
+            UpgradeEffectBones = {
+                'Turret',
+            },
+        },
+        BeamWeapon1Remove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 1,
+            Icon = 'gilbot/satw1',
+            Name = 'Remove Beam Weapon Bonuses',
+            Slot = 'Back',
+            Prerequisite = 'BeamWeapon1',
+            RemoveEnhancements = {
+                'BeamWeapon1',
+                'BeamWeapon1Remove',
+            },
+        },
+        BeamWeapon2 = {
+            BuildCostEnergy = 100000, --1000 energy/s
+            BuildCostMass = 1000, --10 mass/s
+            BuildTime = 100,
+            Icon = 'gilbot/satw2',
+            Name = 'Beam Weapon Bonus 2',
+            Prerequisite = 'BeamWeapon1',
+            CannotDowngradeToPrerequisites = true,
+            DamageMultiplier = 2,
+            Slot = 'Back',
+            UpgradeUnitAmbientBones = {
+                'XEA0002',
+            },
+            UpgradeEffectBones = {
+                'Turret',
+            },
+        },
+        BeamWeapon2Remove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/satw2',
+            Name = 'Remove Beam Weapon Bonuses',
+            Slot = 'Back',
+            Prerequisite = 'BeamWeapon2',
+            RemoveEnhancements = {
+                'BeamWeapon2',
+                'BeamWeapon2Remove',
+            },
+        },
+        BeamWeapon3 = {
+            BuildCostEnergy = 400000, --2000 energy/s
+            BuildCostMass = 2000, --10 mass/s
+            BuildTime = 200,
+            Icon = 'gilbot/satw3',
+            Name = 'Beam Weapon Bonus 3',
+            Prerequisite = 'BeamWeapon2',
+            CannotDowngradeToPrerequisites = true,
+            DamageMultiplier = 4,
+            Slot = 'Back',
+            UpgradeUnitAmbientBones = {
+                'XEA0002',
+            },
+            UpgradeEffectBones = {
+                'Turret',
+            },
+        },
+        BeamWeapon3Remove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/satw3',
+            Name = 'Remove Beam Weapon Bonuses',
+            Slot = 'Back',
+            Prerequisite = 'BeamWeapon3',
+            RemoveEnhancements = {
+                'BeamWeapon2',
+                'BeamWeapon3',
+                'BeamWeapon3Remove',
+            },
+        },
+        Slots = {
+            Back = {
+                name = '<LOC _Back>',
+                x = 38,
+                y = -10,
+            },
+            LCH = {
+                name = '<LOC _LCH>',
+                x = 105,
+                y = 30,
+            },--[[
+            RCH = {
+                name = '<LOC _RCH>',
+                x = -10,
+                y = 30,
+            },]]
+        },
+    },
+    General = {
+        Category = 'Experimental',
+        Classification = 'RULEUC_MilitaryAircraft',
+        CommandCaps = {
+            RULEUCC_Attack = false,
+            RULEUCC_CallTransport = false,
+            RULEUCC_Capture = false,
+            RULEUCC_Guard = true,
+            RULEUCC_Move = true,
+            RULEUCC_Nuke = false,
+            RULEUCC_Patrol = true,
+            RULEUCC_Reclaim = false,
+            RULEUCC_Repair = false,
+            RULEUCC_RetaliateToggle = false,
+            RULEUCC_Stop = true,
+            RULEUCC_Transport = false,
+        },
+        FactionName = 'UEF',
+        Icon = 'air',
+        TechLevel = 'RULEUTL_Secret',
+        UnitWeight = 1,
+        UpgradesFrom = 'xeb2402',
+        UpgradesFromBase = 'xeb2402',
+    },
+    Intel = {
+        VisionRadius = 10,
+    },
+    Interface = {
+        HelpText = '<LOC xea0002_help>Defense Satellite',
+    },
+    LifeBarHeight = 0.075,
+    LifeBarOffset = 1.2,
+    LifeBarSize = 2,
+    --# Leave lifebar for enhancements
+    --LifeBarRender = false,
+    Physics = {
+        BankingSlope = 0,
+        BuildOnLayerCaps = {
+            LAYER_Air = true,
+            LAYER_Land = false,
+            LAYER_Orbit = false,
+            LAYER_Seabed = false,
+            LAYER_Sub = false,
+            LAYER_Water = false,
+        },
+        Elevation = 75,
+        FuelRechargeRate = 150,
+        FuelUseTime = 0,
+        MaxAcceleration = 1,
+        MaxSpeed = 10,
+        MaxSteerForce = 100,
+        --MeshExtentsX = 27,
+        --MeshExtentsY = 8,
+        --MeshExtentsZ = 27,
+        MeshExtentsX = 1,
+        MeshExtentsY = 1,
+        MeshExtentsZ = 1,
+        MinSpeedPercent = 0.85,
+        MotionType = 'RULEUMT_Air',
+        --SkirtOffsetX = -1.5,
+        --SkirtOffsetZ = -1.5,
+        --SkirtSizeX = 24,
+        --SkirtSizeZ = 24,
+        SkirtOffsetX = nil,
+        SkirtOffsetZ = nil,
+        SkirtSizeX = nil,
+        SkirtSizeZ = nil,
+        TurnRadius = 100,
+        TurnRate = 20,
+    },
+    Veteran = {
+        Level1 = 25,
+        Level2 = 50,
+        Level3 = 75,
+        Level4 = 100,
+        Level5 = 125,
+    },
+}

@@ -1,0 +1,196 @@
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="url0105",
+
+    Audio = {
+        EnhanceEnd = Sound {
+            Bank = 'UnitsGlobal',
+            Cue = 'GLB_Enhance_Stop',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        EnhanceFail = Sound {
+            Bank = 'UnitsGlobal',
+            Cue = 'GLB_Enhance_Fail',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        EnhanceLoop = Sound {
+            Bank = 'UnitsGlobal',
+            Cue = 'GLB_Enhance_Loop',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        EnhanceStart = Sound {
+            Bank = 'UnitsGlobal',
+            Cue = 'GLB_Enhance_Start',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+    },
+    Categories = {
+        'PRODUCTSC1',
+        'SELECTABLE',
+        'BUILTBYTIER1FACTORY',
+        'BUILTBYTIER2FACTORY',
+        'BUILTBYTIER3FACTORY',
+        'CYBRAN',
+        'MOBILE',
+        'LAND',
+        'TECH1',
+        'CONSTRUCTION',
+        'ENGINEER',
+        'REPAIR',
+        'RECLAIM',
+        'CAPTURE',
+        'VISIBLETORECON',
+        'RECLAIMABLE',
+        'PATROLHELPER',
+        'SHOWQUEUE',
+        'REBUILDER',
+    },
+    Display = {
+        Abilities = {
+            '<LOC ability_customizable>Customizable',
+        },
+    },
+    Enhancements = {
+        CloakingGenerator = {
+            BuildCostEnergy = 75000, --# -300
+            BuildCostMass = 1500, --# -5
+            BuildTime = 1500, --# 5:00
+            Icon = 'pcg',
+            MaintenanceConsumptionPerSecondEnergy = 300, --# 10% of ACU cost
+            Name = '<LOC enhancements_0079>Personal Cloaking Generator',
+            NewHealth = 50,
+            Prerequisite = 'StealthGenerator',
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'Buildpoint_Center',
+            },
+        },
+        CloakingGeneratorRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 1,
+            Icon = 'pcg',
+            Name = '<LOC enhancements_0080>Remove Personal Cloaking Generator',
+            Prerequisite = 'CloakingGenerator',
+            RemoveEnhancements = {
+                'StealthGenerator',
+                'CloakingGenerator',
+                'CloakingGeneratorRemove',
+            },
+            Slot = 'Back',
+        },
+        RebuildBonusIncrease = {
+            BuildCostEnergy = 6000, --# -100 energy
+            BuildCostMass = 120, --# -2 mass
+            BuildTime = 300, --# 1:00
+            Icon = 'gilbot/rebd',
+            Name = 'Rebuilding Upgrade',
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'URL0105',
+            },
+        },
+        RebuildBonusIncreaseRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 0.1,
+            Icon = 'gilbot/rebd',
+            Name = 'Remove Rebuilding Upgrade',
+            Prerequisite = 'RebuildBonusIncrease',
+            RemoveEnhancements = {
+                'RebuildBonusIncrease',
+                'RebuildBonusIncreaseRemove',
+            },
+            Slot = 'Back',
+        },
+        ReclaimMassBonus = {
+            BuildCostEnergy = 6000, --# -100 energy
+            BuildCostMass = 60, --# -1 mass
+            BuildTime = 300, --# 1:00
+            Icon = 'gilbot/recl',
+            Name = 'Reclaiming Upgrade',
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'URL0105',
+            },
+        },
+        ReclaimMassBonusRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 0.1,
+            Icon = 'gilbot/recl',
+            Name = 'Remove Reclaiming Upgrade',
+            Prerequisite = 'ReclaimMassBonus',
+            RemoveEnhancements = {
+                'ReclaimMassBonus',
+                'ReclaimMassBonusRemove',
+            },
+            Slot = 'Back',
+        },
+        ResourceAllocation = {
+            BuildCostEnergy = 6000, --# -100 energy
+            BuildCostMass = 120, --# -2 mass
+            BuildTime = 300, --# 1:00
+            Icon = 'ras',
+            Name = '<LOC enhancements_0087>Resource Allocation System',
+            ProductionPerSecondEnergy = 20,
+            ProductionPerSecondMass = 1,
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'URL0105',
+            },
+        },
+        ResourceAllocationRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 0.1,
+            Icon = 'ras',
+            Name = '<LOC enhancements_0088>Remove Resource Allocation System',
+            Prerequisite = 'ResourceAllocation',
+            RemoveEnhancements = {
+                'ResourceAllocation',
+                'ResourceAllocationRemove',
+            },
+            Slot = 'Back',
+        },
+        Slots = {
+            Back = {
+                name = '<LOC _Back>',
+                x = 0,
+                y = -10,
+            },
+        },
+        StealthGenerator = {
+            BuildCostEnergy = 5250, --# 100% of ACU cost -75
+            BuildCostMass = 350,  --# -5
+            BuildTime = 350,
+            Icon = 'psg',
+            MaintenanceConsumptionPerSecondEnergy = 50,
+            Name = '<LOC enhancements_0101>Personal Stealth Generator',
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'Buildpoint_Center',
+            },
+        },
+        StealthGeneratorRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'psg',
+            Name = '<LOC enhancements_0102>Remove Personal Stealth Generator',
+            Prerequisite = 'StealthGenerator',
+            RemoveEnhancements = {
+                'StealthGenerator',
+                'StealthGeneratorRemove',
+            },
+            Slot = 'Back',
+        },
+    },
+    Intel = {
+        Cloak = true,
+        FreeIntel = false,
+        RadarStealth = true,
+        ReactivateTime = 2,
+        SonarStealth = true,
+    },
+}

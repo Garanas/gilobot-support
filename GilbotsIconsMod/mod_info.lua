@@ -1,0 +1,17 @@
+name = "Gilbot-X's Mod Pack Modules: Icons & other Texture Files: Sharing & Mapping"
+uid = "12345678-2050-4efa-b0c3-f900bd68ffa3"
+version = 2.05 --(of the Mod Pack)
+copyright = ""
+description = "Unit icons for all mods can be put in one folder (/mods/Icons/units/) and only one list (IconTable.lua) needs to be updated."
+icon = "/mods/GilbotsModPackCore/icon.png" 
+author = "Gilbot-X"
+url = ""
+selectable = true
+enabled = true
+exclusive = false
+ui_only = false
+requires = {}
+requiresNames = {}
+conflicts = {}
+before = {}
+after = {}

@@ -1,0 +1,15 @@
+UnitBlueprint {
+    Merge= true,
+    BlueprintId = 'xsl0301',
+    Enhancements = {
+        --# This now costs 4 times as much
+        --# but at least its worth doing as
+        --# it gives you as much build rate 
+        --# increase as doing it to 4 SACUs would      
+        EngineeringThroughput = {
+            BuildCostEnergy = 300000,
+            BuildCostMass = 8400,
+            NewBuildRate = 180,
+        },
+    },
+}

@@ -1,0 +1,111 @@
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="uaa0310",
+    Air = {
+        --# MOD: Slowed down. Was 3
+        MaxAirspeed = 2,
+    },
+    --# Added extra Audio for the shield
+    Audio = {
+        ShieldOff = Sound {
+            Bank = 'UAL',
+            Cue = 'UAL0202_Shield_Off',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        ShieldOn = Sound {
+            Bank = 'UAL',
+            Cue = 'UAL0202_Shield_On',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+    },
+    Categories = {
+        'SELECTABLE',
+        'BUILTBYTIER3COMMANDER',
+        'BUILTBYTIER3ENGINEER',
+        'AEON',
+        'MOBILE',
+        'AIR',
+        'HIGHALTAIR',
+        'EXPERIMENTAL',
+        'AIRSTAGINGPLATFORM',
+        'CARRIER',
+        'NEEDMOBILEBUILD',
+        'VISIBLETORECON',
+        'RECLAIMABLE',
+        'DRAGBUILD',
+        'FACTORY',
+        --# Added next line
+        'SHIELD',
+    },
+    Defense = {
+        ArmorType = 'Normal',
+        Health = 7500,
+        MaxHealth = 7500,
+        RegenRate = 0.5,
+        --# New defense
+        Shield = {
+            ImpactEffects = 'AeonShieldHit01',
+            OwnerShieldMesh = '/mods/GilbotsModPackCore/shields/uaa0310_personalshield_mesh',
+            RegenAssistMult = 10,
+            ShieldEnergyDrainRechargeTime = 2,
+            ShieldMaxHealth = 10000,
+            ShieldMaxHealthMin = 2000,
+            ShieldMaxHealthMax = 30000,
+            ShieldRechargeTime = 90,
+            ShieldRegenRate = 34,
+            ShieldRegenStartTime = 50,
+            ShieldSize = 30,
+            ShieldVerticalOffset = 0,
+            PersonalShield = true,
+        },
+    },
+    Display = {
+        Abilities = {
+            'Depth Charge',
+            'Builds/Refuels/Repairs Aircraft',
+            'Anti-Air',
+             --# MOD - Added shield ability
+            'Personal Shield',
+        },
+    },
+    Economy = {
+         --# FA values
+        --[[
+        BuildCostEnergy = 731250,
+        BuildCostMass = 45000,
+        BuildRate = 180,
+        BuildTime = 33750,
+        BuildableCategory = {
+            'BUILTBYTIER3FACTORY AEON MOBILE AIR',
+        },
+        -]]
+        --# My values to balance for shield
+        --# TODO: Shield should be made an enhancement
+        --# Then revert back to GPG build values
+        --# (Or a bit higher for the upgrade capability)
+        --BuildCostEnergy = 1000000,
+        --BuildCostMass = 30000,
+        --# I added this is for the shield
+        MaintenanceConsumptionPerSecondEnergy = 10000,
+    },
+    General = {
+        --# MOD - Added ToggleCaps
+        ToggleCaps = {
+            RULEUTC_ShieldToggle = true,
+        },
+    },
+    Physics = {
+        --# This stops the fuel bar from appearing.
+        --# The fuel bar hides the shield energy bar
+	    --FuelUseTime=0,
+    },
+    SliderAdjustableValues = {
+        ShieldStrength = {
+            DisplayText = 'Personal shield strength',
+            BPDefaultValueLocation = {'Defense', 'Shield'},
+            BPDefaultValueName = 'ShieldMaxHealth',
+            ResourceDrainID = 'Shield',
+            UpdateConsumptionImmediately = true,
+        },
+    },
+}

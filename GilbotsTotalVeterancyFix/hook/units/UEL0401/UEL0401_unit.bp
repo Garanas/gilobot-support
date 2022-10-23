@@ -1,0 +1,34 @@
+#UEF Fatboy
+UnitBlueprint {
+	BlueprintId="uel0401",Merge=true,
+    Weapon = {
+        {
+            MuzzleVelocity = 40,
+            TurretPitchRange = 90,
+        },
+        {
+            MuzzleVelocity = 40,
+            TurretPitchRange = 90,
+        },
+        {
+            MuzzleVelocity = 40,
+            TurretPitchRange = 90,
+        },
+        {
+            MuzzleVelocity = 40,
+            TurretPitchRange = 90,
+        },
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+        },
+    },
+}

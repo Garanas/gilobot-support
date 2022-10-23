@@ -1,0 +1,257 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId="url0106",
+    Buffs = {    
+        Regen = {
+            Level1 = 5,
+            Level2 = 5,
+            Level3 = 5,
+            Level4 = 5,
+            Level5 = 10,
+        },
+    },  
+    --# Added upgradeable ability
+    Display = {
+        Abilities = {
+            'Upgradeable',
+        },
+        Mesh = {
+            LODs = {
+                {
+                    MeshName = '/Mods/GilbotsUpgrades2/hook/units/url0106/url0106_LOD0.scm',
+                },
+            },
+        },
+    },
+    Economy = {
+        --# The high build rate adjusts rate of power
+        --# used to enhance.
+        BuildRate = 10,
+        --# This is what it can build (upgrade to)
+        BuildableCategory = {
+            'url0106b',
+        },
+    },
+    Enhancements = {
+        RateOfFire1 = {
+            BuildCostEnergy = 140,
+            BuildCostMass = 7,
+            BuildTime = 70,
+            Icon = 'gilbot/rof1',
+            Name = 'Rate Of Fire Bonus 1',
+            RateOfFireMultiplier = 2,
+            Slot = 'LCH',
+        },
+        RateOfFire1Remove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/rof1',
+            Name = 'Remove Rate Of Fire Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'RateOfFire1',
+            RemoveEnhancements = {
+                'RateOfFire1',
+                'RateOfFire1Remove',
+            },
+        },
+        RateOfFire2 = {
+            BuildCostEnergy = 280,
+            BuildCostMass = 14,
+            BuildTime = 70,
+            CannotDowngradeToPrerequisites = true,
+            Icon = 'gilbot/rof2',
+            Name = 'Rate Of Fire Bonus 2',
+            Prerequisite = 'RateOfFire1',
+            CannotDowngradeToPrerequisites = true,
+            RateOfFireMultiplier = 3,
+            Slot = 'LCH',
+        },
+        RateOfFire2Remove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/rof2',
+            Name = 'Remove Rate Of Fire Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'RateOfFire2',
+            RemoveEnhancements = {
+                'RateOfFire1',
+                'RateOfFire2',
+                'RateOfFire2Remove',
+            },
+        },
+        Cloak = {
+            BuildCostEnergy = 140,
+            BuildCostMass = 7,
+            BuildTime = 70,
+            Icon = 'pcg',
+            MaintenanceConsumptionPerSecondEnergy = 15,
+            Name = '<LOC enhancements_0079>Personal Cloaking Generator',
+            Slot = 'Back',
+        },
+        CloakRemove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'pcg',
+            Name = '<LOC enhancements_0080>Remove Personal Cloaking Generator',
+            Prerequisite = 'Cloak',
+            RemoveEnhancements = {
+                'Cloak',
+                'CloakRemove',
+            },
+            Slot = 'Back',
+        },
+        Slots = {
+            Back = {
+                name = '<LOC _Back>',
+                x = 38,
+                y = -10,
+            },
+            LCH = {
+                name = '<LOC _LCH>',
+                x = 105,
+                y = 30,
+            },--[[
+            RCH = {
+                name = '<LOC _RCH>',
+                x = -10,
+                y = 30,
+            },]]
+        },
+    },
+    General = {
+        UpgradesTo = 'url0106b',
+    },
+    Intel = {
+        Cloak = true,
+        RadarRadius = 35,
+        RadarStealth = true,
+        StealthWaitTime = 1,
+    },
+    ExpeWars_Enhancement = {  
+		{   
+            --# SIM will add 10% to MaxHealth
+            --# ontop of this, by default
+            --# each time veterancy level goes up.            
+            MaxHealthAdd = 50,
+		},
+		{
+            RateOfFireBonusFactors = {
+                MainGun = 1.5,
+            },
+		},
+        {
+            WeaponDamageAdd = {
+                MainGun = 2,
+            },
+		},
+        {
+            --# This is when the shoulder
+            --# rocket weapon is added.
+            ShowBones = {
+                URL02 = true,
+            },
+            EnableWeapons = {
+                MainGun = false,
+                MainGun2 = true,
+            },
+		},
+		{ 
+            WeaponDamageAdd = {
+			    MainGun2 = 3,
+            },
+            RateOfFireBonusFactors = {
+                MainGun2 = 2,
+            },
+            --# This will bring 
+            --# it up to 250.
+            MaxHealthAdd = 88,
+		},
+	},
+    Veteran = {
+        Level1 = 1,
+        Level2 = 2,
+        Level3 = 3,
+        Level4 = 5,
+        Level5 = 10,
+    },
+    Weapon = {
+        {}, --# Don't change first one
+        {
+            AboveWaterTargetsOnly = true,
+            Audio = {
+                Fire = Sound {
+                    Bank = 'URLWeapon',
+                    Cue = 'URL0106_Laser_Pulse',
+                    LodCutoff = 'Weapon_LodCutoff',
+                },
+            },
+            BallisticArc = 'RULEUBA_LowArc',
+            CollideFriendly = false,
+            Damage = 7,
+            DamageType = 'Normal',
+            DisplayName = 'Light Pulse Laser',
+            FireTargetLayerCapsTable = {
+                Air = 'Land|Water|Seabed',
+                Land = 'Land|Water|Seabed',
+                Water = 'Land|Water|Seabed',
+            },
+            FiringRandomness = 0,
+            FiringTolerance = 2,
+            Label = 'MainGun2',
+            MaxRadius = 14,
+            MuzzleSalvoDelay = 0.1,
+            MuzzleSalvoSize = 9,
+            MuzzleVelocity = 25,
+            ProjectileId = '/projectiles/CDFLaserLight01/CDFLaserLight01_proj.bp',
+            ProjectileLifetimeUsesMultiplier = 1.15,
+            ProjectilesPerOnFire = 9,
+            RackBones = {
+                {
+                    MuzzleBones = {
+                        'Turret_Muzzle',
+						'Turret_Muzzle01',
+						'Turret_Muzzle02',
+                    },
+                    RackBone = 'Turret_Barrel',
+                },
+            },
+            RackFireTogether = false,
+            RackRecoilDistance = 0,
+            RackReloadTimeout = 10,
+            RackSalvoChargeTime = 0,
+            RackSalvoReloadTime = 0,
+            RackSalvoSize = 1,
+            RackSlavedToTurret = false,
+            RangeCategory = 'UWRC_DirectFire',
+            RateOfFire = 1,
+            TargetCheckInterval = 0.6,
+            TargetPriorities = {
+                'SPECIALHIGHPRI',
+                'TECH3 MOBILE',
+                'TECH2 MOBILE',
+                'TECH1 MOBILE',
+                'STRUCTURE DEFENSE',
+                'SPECIALLOWPRI',
+                'ALLUNITS',
+            },
+            TargetRestrictDisallow = 'UNTARGETABLE',
+            TrackingRadius = 1.15,
+            TurretBoneMuzzle = 'Turret_Muzzle',
+            TurretBonePitch = 'Turret_Barrel',
+            TurretBoneYaw = 'Turret',
+            TurretDualManipulators = false,
+            TurretPitch = 0,
+            TurretPitchRange = 90,
+            TurretPitchSpeed = 30,
+            TurretYaw = 0,
+            TurretYawRange = 360,
+            TurretYawSpeed = 180,
+            Turreted = true,
+            UseFiringSolutionInsteadOfAimBone = true,
+            WeaponCategory = 'Direct Fire',
+        },
+    },
+}

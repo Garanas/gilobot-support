@@ -1,0 +1,55 @@
+--# Aeon T3 Mass Extractor
+--# This unit has a strange animation file
+--# where it starts and finishes in an 'up' or 'unpacked' position.
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="uab1302", 
+    Defense = {
+        SensitiveShield = {
+            OwnerShieldMesh = '/mods/GilbotsModPackCore/shields/uab1302_personalshield_mesh',
+            ImpactEffects = 'AeonShieldHit01',
+            RegenAssistMult = 10,
+            ShieldMaxHealth = 15000,
+            --# Takes this long to recharge once shield
+            --# is off, regardless of shield maxhealth
+            ShieldRechargeTime = 15,  
+            --# comes back on after energy economy 
+            --# fails and then is back online
+            ShieldEnergyDrainRechargeTime = 2, 
+            --# HP per second regained 
+            --# when shield is still on
+            ShieldRegenRate = 150, 
+            --# Takes this long to start 
+            --# recharging when shield is on
+            ShieldRegenStartTime = 240,
+        },
+    },
+    Display = {
+        ActiveAnimationSettings = {
+            PackedAtStart = false,
+            UpgradesFromPacked = false, -- this unit doesn't have an upgrade animation!!
+            UnPackedFraction = 0,
+            PackedUpFraction = 0.125,
+            TurnTime = 1.6,
+            TurnRate = 1,
+        },
+    },
+    --# The commented out keys and values 
+    --# are examples of how the extra keys in the 
+    --# blueprint file work.  Note:
+    --# These only work for MeXs!!
+    --# Note: AllowManualUpgradeAt,
+    --# AutoUpgradeAt and DontPassOnTimeBonus
+    --# are not used here because there is no 
+    --# T4 extractor to upgrade to!
+    Economy = {
+        --InheritTimeBonus = true,
+        --MaintenanceConsumptionPerSecondEnergy = 36,
+        --MassProductionGrowthConstant = 1.01,
+        --MaxProductionPerSecondMass = 80,
+        --ProductionPerSecondMass = 30,
+    },
+    Intel = {
+        VisionRadius = 30,
+    },
+}

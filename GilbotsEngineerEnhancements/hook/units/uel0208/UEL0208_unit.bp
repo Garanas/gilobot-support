@@ -1,0 +1,68 @@
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="uel0208",
+    Display = {
+        Abilities = {
+            '<LOC ability_customizable>Customizable',
+        },
+    },
+    Enhancements = {
+        ResourceAllocation = {
+            BuildCostEnergy = 12000, --# -100 energy
+            BuildCostMass = 120, --# -2 mass
+            BuildTime = 600, --# 1:00
+            Icon = 'isb',
+            Name = '<LOC enhancements_0087>Resource Allocation System',
+            ProductionPerSecondEnergy = 50,
+            ProductionPerSecondMass = 1,
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'UEL0208',
+            },
+        },
+        ResourceAllocationRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 0.1,
+            Icon = 'isb',
+            Name = '<LOC enhancements_0088>Remove Resource Allocation System',
+            Prerequisite = 'ResourceAllocation',
+            RemoveEnhancements = {
+                'ResourceAllocation',
+                'ResourceAllocationRemove',
+            },
+            Slot = 'Back',
+        },
+        Slots = {
+            Back = {
+                name = '<LOC _Back>',
+                x = 0,
+                y = -10,
+            },
+        },
+        Speed = {
+            BuildCostEnergy = 12000,  --200\sec
+            BuildCostMass = 60, -- 1\sec
+            BuildTime = 300, -- 300 Ticks = 60 secs 
+            Icon = 'gilbot/spe',
+            Name = 'Speed Upgrade',
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'UEL0208',
+            },
+        },
+        SpeedRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/spe',
+            Name = 'Remove Speed Upgrade',
+            Prerequisite = 'Speed',
+            RemoveEnhancements = {
+                'Speed',
+                'SpeedRemove',
+            },
+            Slot = 'Back',
+        },
+    },
+}

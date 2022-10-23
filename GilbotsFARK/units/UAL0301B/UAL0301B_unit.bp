@@ -1,0 +1,601 @@
+UnitBlueprint {
+     AI = {
+        TargetBones = {
+            'AttachPoint',
+            'Leg_Left_B02',
+            'Leg_Right_B02',
+            'Torso',
+        },
+    },
+    Audio = {
+        Construct = Sound {
+            Bank = 'UAL',
+            Cue = 'UAL0301_Construct_Start',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        ConstructLoop = Sound {
+            Bank = 'UAL',
+            Cue = 'UAL0301_Construct_Loop',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        Destroyed = Sound {
+            Bank = 'UALDestroy',
+            Cue = 'UAL_Destroy_Land',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        EnhanceEnd = Sound {
+            Bank = 'UnitsGlobal',
+            Cue = 'GLB_Enhance_Stop',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        EnhanceFail = Sound {
+            Bank = 'UnitsGlobal',
+            Cue = 'GLB_Enhance_Fail',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        EnhanceLoop = Sound {
+            Bank = 'UnitsGlobal',
+            Cue = 'GLB_Enhance_Loop',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        EnhanceStart = Sound {
+            Bank = 'UnitsGlobal',
+            Cue = 'GLB_Enhance_Start',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        ReclaimLoop = Sound {
+            Bank = 'UAL',
+            Cue = 'UAL0301_Reclaim_Loop',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        StartMove = Sound {
+            Bank = 'UAL',
+            Cue = 'UAL0301_Move_Start',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        StartReclaim = Sound {
+            Bank = 'UAL',
+            Cue = 'UAL0301_Reclaim_Start',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        StopMove = Sound {
+            Bank = 'UAL',
+            Cue = 'UAL0301_Move_Stop',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+        UISelection = Sound {
+            Bank = 'Interface',
+            Cue = 'Aeon_Select_Commander',
+            LodCutoff = 'UnitMove_LodCutoff',
+        },
+    },
+    BuildIconSortPriority = 10,
+    Categories = {
+        'PRODUCTSC1',
+        'SELECTABLE',
+        'AEON',
+        'MOBILE',
+        'LAND',
+        'TECH3',
+        'ENGINEER',
+        'CONSTRUCTION',
+        'REPAIR',
+        'RECLAIM',
+        'REBUILDER',
+        'BUILTBYQUANTUMGATE',
+        'VISIBLETORECON',
+        'SUBCOMMANDER',
+        'PATROLHELPER',
+        'SHOWQUEUE',
+    },
+    Defense = {
+        --# Has armour of T3 Engineer
+        ArmorType = 'Normal',
+        Health = 1050,
+        MaxHealth = 1050,
+        RegenRate = 1,
+        AirThreatLevel = 0,
+        EconomyThreatLevel = 0,
+        SubThreatLevel = 0,
+        SurfaceThreatLevel = 0,
+    },
+    Description = 'F.A.R.K.',
+    Display = {
+        Abilities = {
+            '<LOC ability_customizable>Customizable',
+        },
+        AnimationWalk = '/units/UAL0301/UAL0301_AWalk01.sca',
+        --# Walks twice as fast as SCU
+        AnimationWalkRate = 3.5*2,
+        IconName = 'UAL0301',
+        IdleEffects = {
+            Seabed = {
+                Effects = {
+                    {
+                        Bones = {
+                            'Arm_Right_B02',
+                            'Arm_Left_B02',
+                            'Arm_Right_Build',
+                            'AttachPoint',
+                        },
+                        Type = 'UnderWater01',
+                    },
+                },
+            },
+        },
+        Mesh = {
+            IconFadeInZoom = 100,
+            LODs = {
+                {
+                    LODCutoff = 50,
+                    Scrolling = true,
+                    ShaderName = 'Aeon',
+                    MeshName = '/units/ual0301/ual0301_lod0.scm',
+                    AlbedoName = '/units/ual0301/ual0301_albedo.dds',
+                    NormalsName = '/units/ual0301/ual0301_normalsts.dds',
+                    SpecularName = '/units/ual0301/ual0301_specteam.dds', 
+                },
+                {
+                    LODCutoff = 120,
+                    ShaderName = 'Aeon',
+                    MeshName = '/units/ual0301/ual0301_lod1.scm',
+                    AlbedoName = '/units/ual0301/ual0301_lod1_albedo.dds',
+                    NormalsName = '/units/ual0301/ual0301_lod1_normalsTS.dds',
+                    SpecularName = '/units/ual0301/ual0301_lod1_specteam.dds',
+                },
+            },
+        },
+        MovementEffects = {
+            Land = {
+                Effects = {
+                    {
+                        Bones = {
+                            'Leg_Left_B03',
+                            'Leg_Right_B03',
+                        },
+                        Scale = 0.5*0.5,
+                        Type = 'GroundKickup01',
+                    },
+                },
+                Footfall = {
+                    Bones = {
+                        {
+                            FootBone = 'Leg_Left_B03',
+                            Tread = {
+                                TreadMarks = 'CommanderPrint_albedo',
+                                TreadMarksSizeX = 0.45*0.5,
+                                TreadMarksSizeZ = 0.45*0.5,
+                                TreadOffset = {
+                                    -0.18*0.5,
+                                    0,
+                                    0.35*0.5,
+                                },
+                            },
+                        },
+                        {
+                            FootBone = 'Leg_Right_B03',
+                            Tread = {
+                                TreadMarks = 'CommanderPrint_albedo',
+                                TreadMarksSizeX = 0.45*0.5,
+                                TreadMarksSizeZ = 0.45*0.5,
+                                TreadOffset = {
+                                    0.18*0.5,
+                                    0,
+                                    0.35*0.5,
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+            Seabed = {
+                Effects = {
+                    {
+                        Bones = {
+                            'UAL0301',
+                            'Arm_Right_B02',
+                            'Arm_Left_B02',
+                            'Arm_Right_Build',
+                            'AttachPoint',
+                            'Leg_Right_B03',
+                            'Leg_Left_B03',
+                        },
+                        Type = 'UnderWater01',
+                    },
+                },
+            },
+        },
+        PlaceholderMeshName = 'UXB0000',
+        SpawnRandomRotation = true,
+        TransportAnimation = {
+            {
+                Animation = '/units/UAL0301/UAL0301_afold.sca',
+                Weight = 100,
+            },
+        },
+        TransportDropAnimation = {
+            {
+                Animation = '/units/UAL0301/UAL0301_aunfold.sca',
+                Weight = 100,
+            },
+        },
+        UniformScale = 0.13*0.5,
+    },
+    Economy = {
+        --# Costs half as much to build!
+        --# and takes half as long!
+        --[[ 
+        
+      What a T3 Engineer costs
+        BuildCostEnergy = 3150,
+        BuildCostMass = 490,
+        BuildRate = 15,
+        BuildTime = 2100,
+        StorageEnergy = 400,
+        StorageMass = 40,
+        TeleportEnergyMod = 0.15,
+        TeleportMassMod = 1,
+        TeleportTimeMod = 0.01,
+       
+      What a SCU costs
+        BuildCostEnergy = 123000,
+        BuildCostMass = 8700,
+        BuildRate = 60,
+        BuildTime = 36000,
+        ProductionPerSecondEnergy = 300,
+        ProductionPerSecondMass = 3,
+        SacrificeEnergyMult = 0.6,
+        SacrificeMassMult = 0.6,
+        StorageEnergy = 5000,
+        StorageMass = 275,
+        TeleportEnergyMod = 3,
+        TeleportMassMod = 0,
+        TeleportTimeMod = 0.0001,
+        
+So we make this more expensive than 2 T3 engineers even though it has the same armour as just one.  However, the FARK can enhance and make itself viable in the battle field at a price, but the T3 engineer cannot do that. It has better build distance than either.  It has a tiny fraction of the armour of an SCU and no weapons.  It's tactical use is more limited than either the engineer or the SCU but it excells better than both at what it does best - assisting factories, regenerating bases  and repairing in the field.  It takes a third of the time to build as an SCU at the same energy rate but slightly less mass
+
+        ]]
+        BuildCostEnergy = 20000,
+        BuildCostMass = 1500,
+        BuildRate = 60,
+        BuildTime = 2000,
+        --# This is new.  Give it a long build distance
+        --# so that we can get a lot of them around something.
+        MaxBuildDistance = 15,
+        --NaturalProducer = true,
+        --ProductionPerSecondEnergy = 20,
+        --ProductionPerSecondMass = 2,
+        SacrificeEnergyMult = 0.6,
+        SacrificeMassMult = 0.6,
+        --# Use T3 Engineer values instead
+        StorageEnergy = 400,
+        StorageMass = 40,
+        TeleportEnergyMod = 3,
+        TeleportMassMod = 0,
+        TeleportTimeMod = 0.0001,
+    },
+    Enhancements = {
+        EngineeringFocusingModule = {
+            BuildCostEnergy = 50000,  --# was 75000
+            BuildCostMass = 200,  --# was 2100
+            BuildTime = 600, --# was 9000
+            Icon = 'efm',
+            Name = '<LOC enhancements_0022>Rapid Fabricator',
+            NewBuildRate = 90,
+            Slot = 'RCH',
+            UpgradeUnitAmbientBones = {
+                'UAL0301',
+            },
+        },
+        AdvancedEngineeringFocusingModule = {
+            BuildCostEnergy = 150000,
+            BuildCostMass = 200,
+            BuildTime = 900,
+            Icon = 'efm',
+            Name = 'Advanced Engineering Focusing Module',
+            NewBuildRate = 180,
+            Prerequisite = 'EngineeringFocusingModule',
+            Slot = 'RCH',
+            UpgradeUnitAmbientBones = {
+                'UAL0301',
+            },
+        },
+        Sacrifice = {
+            BuildCostEnergy = 2500,
+            BuildCostMass = 150,
+            BuildTime = 750,
+            Icon = 'sp',
+            Name = '<LOC enhancements_0026>Sacrificial System',
+            Slot = 'LCH',
+            UpgradeUnitAmbientBones = {
+                'UAL0301',
+            },
+        },
+        SacrificeRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 0.1,
+            Icon = 'sp',
+            Name = '<LOC enhancements_0027>Remove Sacrificial System',
+            Prerequisite = 'Sacrifice',
+            RemoveEnhancements = {
+                'Sacrifice',
+                'SacrificeRemove',
+            },
+            Slot = 'LCH',
+        },
+        Shield = {
+            --# This is to protect it from snipe attacks in
+            --# your base, such as T2 Arty or bombers
+            BuildCostEnergy = 80000,
+            BuildCostMass = 400,
+            BuildTime = 2000,
+            Icon = 'tsg',
+            ImpactEffects = 'AeonShieldHit01',
+            MaintenanceConsumptionPerSecondEnergy = 300,
+            Name = '<LOC enhancements_0028>Personal Shield Generator',
+            OwnerShieldMesh = '/mods/GilbotsFARK/units/ual0301B/ual0301B_personalshield_mesh',
+            RegenAssistMult = 10,
+            ShieldEnergyDrainRechargeTime = 12,
+            ShieldMaxHealth = 10000,
+            ShieldRechargeTime = 190,
+            ShieldRegenRate = 115,
+            ShieldRegenStartTime = 60,
+            ShowBones = {
+                'Turbine',
+            },
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'Turbine',
+            },
+            UpgradeUnitAmbientBones = {
+                'UAL0301',
+            },
+        },
+        ShieldHeavy = {
+            --# This is to protect it from snipe attacks in
+            --# your base, such as T3 Arty or strategic bombers
+            BuildCostEnergy = 320000,
+            BuildCostMass = 800,
+            BuildTime = 4000,
+            Icon = 'htsg',
+            ImpactEffects = 'AeonShieldHit01',
+            MaintenanceConsumptionPerSecondEnergy = 600,
+            Name = '<LOC enhancements_0029>Heavy Personal Shield Generator',
+            OwnerShieldMesh = '/mods/GilbotsFARK/units/ual0301B/ual0301B_personalshield_mesh',
+            Prerequisite = 'Shield',
+            RegenAssistMult = 10,
+            ShieldEnergyDrainRechargeTime = 12,
+            ShieldMaxHealth = 25000,
+            ShieldRechargeTime = 240,
+            ShieldRegenRate = 152,
+            ShieldRegenStartTime = 75,
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'Turbine',
+            },
+            UpgradeUnitAmbientBones = {
+                'UAL0301',
+            },
+        },
+        ShieldHeavyRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 0.1,
+            HideBones = {
+                'Turbine',
+            },
+            Icon = 'htsg',
+            Name = 'Remove Shields',
+            Prerequisite = 'ShieldHeavy',
+            RemoveEnhancements = {
+                'Shield',
+                'ShieldHeavy',
+                'ShieldHeavyRemove',
+            },
+            Slot = 'Back',
+        },
+        ShieldRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 0.1,
+            HideBones = {
+                'Turbine',
+            },
+            Icon = 'tsg',
+            Name = '<LOC enhancements_0030>Remove Personal Shield',
+            Prerequisite = 'Shield',
+            RemoveEnhancements = {
+                'Shield',
+                'ShieldRemove',
+            },
+            Slot = 'Back',
+        },
+        Slots = {
+            Back = {
+                name = '<LOC _Back>',
+                x = -13,
+                y = -8,
+            },
+            LCH = {
+                name = '<LOC _LCH>',
+                x = 60,
+                y = 50,
+            },
+            RCH = {
+                name = '<LOC _RCH>',
+                x = -16,
+                y = 50,
+            },
+        },
+        SystemIntegrityCompensator = {
+            --# This is for the battlefield.
+            --# One hit from a strategic bomb or artillery 
+            --# will still destroy the FARK, but it can absorb unlimited
+            --# fire from an ACU, a couple SCUs or a couple T3 Seige Bots
+            BuildCostEnergy = 600000,
+            BuildCostMass = 1650,
+            BuildTime = 4500,
+            Icon = 'sic',
+            Name = '<LOC enhancements_0033>Nano-Repair System',
+            NewRegenRate = 350,
+            ShowBones = {
+                'Turbine',
+            },
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'Turbine',
+            },
+            UpgradeUnitAmbientBones = {
+                'UAL0301',
+            },
+        },
+        SystemIntegrityCompensatorRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 0.1,
+            HideBones = {
+                'Turbine',
+            },
+            Icon = 'sic',
+            Name = '<LOC enhancements_0034>Remove Nano-Repair System',
+            Prerequisite = 'SystemIntegrityCompensator',
+            RemoveEnhancements = {
+                'SystemIntegrityCompensator',
+                'SystemIntegrityCompensatorRemove',
+            },
+            Slot = 'Back',
+        },
+        Teleporter = {
+            --# 10 times faster than an SCU to enable teleport 
+            --# plus at fraction of ehancement rate/costs
+            BuildCostEnergy = 15000,
+            BuildCostMass = 500,
+            BuildTime = 1800,
+            Icon = 'pqt',
+            Name = '<LOC enhancements_0035>Personal Teleporter',
+            ShowBones = {
+                'Turbine',
+            },
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'Turbine',
+            },
+            UpgradeUnitAmbientBones = {
+                'UAL0301',
+            },
+        },
+        TeleporterRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 0.1,
+            HideBones = {
+                'Turbine',
+            },
+            Icon = 'pqt',
+            Name = '<LOC enhancements_0036>Remove Personal Teleporter',
+            Prerequisite = 'Teleporter',
+            RemoveEnhancements = {
+                'Teleporter',
+                'TeleporterRemove',
+            },
+            Slot = 'Back',
+        },
+    },
+    General = {
+        BuildBones = {
+            AimBone = 'Arm_Right_Build',
+            BuildEffectBones = {
+                'Arm_Right_Build',
+            },
+            PitchBone = 'Arm_Right_B03',
+            YawBone = 'Torso',
+        },
+        Category = 'Command',
+        Classification = 'RULEUC_Commander',
+        CommandCaps = {
+            RULEUCC_Attack = true,
+            RULEUCC_CallTransport = true,
+            --# Can't capture
+            RULEUCC_Capture = false,
+            RULEUCC_Guard = true,
+            RULEUCC_Move = true,
+            RULEUCC_Nuke = false,
+            RULEUCC_Patrol = true,
+            RULEUCC_Pause = true,
+            RULEUCC_Reclaim = true,
+            RULEUCC_Repair = true,
+            RULEUCC_RetaliateToggle = true,
+            RULEUCC_Sacrifice = false,
+            RULEUCC_Stop = true,
+            RULEUCC_Transport = false,
+        },
+        ConstructionBar = true,
+        FactionName = 'Aeon',
+        Icon = 'amph',
+        OrderOverrides = {
+            RULEUTC_ShieldToggle = {
+                bitmapId = 'shield-personal',
+                helpText = 'toggle_shield_personal',
+            },
+        },
+        SelectionPriority = 3,
+        TechLevel = 'RULEUTL_Secret',
+        UnitWeight = 0,
+    },
+    Intel = {
+        --FreeIntel = true,
+        --OmniRadius = 16,
+        VisionRadius = 26,
+        WaterVisionRadius = 26,
+    },
+    Interface = {
+        HelpText = 'F.A.R.K.',
+    },
+    LifeBarHeight = 0.15,
+    LifeBarOffset = 0.4,
+    LifeBarSize = 0.9*0.75,
+    Physics = {
+        BankingSlope = 0,
+        BuildOnLayerCaps = {
+            LAYER_Air = false,
+            LAYER_Land = true,
+            LAYER_Orbit = false,
+            LAYER_Seabed = false,
+            LAYER_Sub = false,
+            LAYER_Water = false,
+        },
+        DragCoefficient = 0.2,
+        LayerChangeOffsetHeight = -0.85,
+        MaxAcceleration = 2.2,
+        MaxBrake = 2.2*2,
+        MaxSpeed = 2.2*2,
+        MaxSpeedReverse = 0,
+        MaxSteerForce = 12,
+        MeshExtentsX = 1.25,
+        MeshExtentsY = 1.9,
+        MeshExtentsZ = 1.75,
+        MinSpeedPercent = 0,
+        MotionType = 'RULEUMT_Amphibious',
+        StandUpright = true,
+        TurnRadius = 10*0.5,
+        TurnRate = 150,
+    },
+    SelectionCenterOffsetX = 0,
+    SelectionCenterOffsetZ = -0.1,
+    SelectionSizeX = 0.55*0.75,
+    SelectionSizeZ = 0.55*0.75,
+    SelectionThickness = 0.6,
+    SelectionYOffset = 0,
+    SizeX = 0.75*0.5,
+    SizeY = 1.7*0.5,
+    SizeZ = 0.4*0.5,
+    StrategicIconName = 'icon_land3_engineer',
+    StrategicIconSortPriority = 1,
+    Transport = {
+        CanFireFromTransport = false,
+        --# Allow more on transport
+        --TransportClass = 3,
+        TransportClass = 2,
+    },
+}

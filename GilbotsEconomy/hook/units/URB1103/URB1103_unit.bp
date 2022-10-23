@@ -1,0 +1,26 @@
+--# Cybran T1 Mass Extractor
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="urb1103", 
+    Economy = {
+        ResourceDrainBreakDown = {
+            Stealth = {
+                Energy = 20,
+                Mass = 0,
+            },
+            ProductionCosts = {
+                Energy = 2,
+                Mass = 0,
+            },
+        },
+    },
+    General = {
+        ToggleCaps = {
+            RULEUTC_StealthToggle = true,
+        },
+    },
+    Intel = {
+        RadarStealth = true,
+        ReactivateTime = 2,
+    },
+}

@@ -1,0 +1,9 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId='xrs0205',
+    Intel = {
+        --# GPG forgot to put this in
+        --# when they moved to FA.
+        ReactivateTime=5,
+    },
+}

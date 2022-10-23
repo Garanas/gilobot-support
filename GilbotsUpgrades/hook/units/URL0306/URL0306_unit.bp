@@ -1,0 +1,31 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId="url0306",
+    --# Added upgradable ability
+    Display = {
+        Abilities = {
+            'Stealth Field',
+            'Upgradeable',
+        },
+    },
+    Economy = {
+        --# The high build rate adjusts rate of power
+        --# used to enhance.
+        BuildRate = 30,
+        --# This is what it can build (upgrade to)
+        BuildableCategory = {
+            'url0306b',
+        },
+    },
+    General = {
+        UpgradesTo = 'url0306b',
+    },
+    Intel = {
+        --RadarStealthFieldRadius = 16,
+        RadarStealthFieldRadiusMin = 8,
+        RadarStealthFieldRadiusMax = 32,
+        --# GPG forgot to add this
+        ReactivateTime = 5,
+    },
+}
+

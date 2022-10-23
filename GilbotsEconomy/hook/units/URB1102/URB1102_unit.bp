@@ -1,0 +1,88 @@
+--# Cybran HCPP
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="urb1102", 
+    Categories = {
+        'PRODUCTSC1',
+        'SELECTABLE',
+        'BUILTBYTIER1ENGINEER',
+        'BUILTBYTIER2ENGINEER',
+        'BUILTBYTIER3ENGINEER',
+        'BUILTBYTIER2COMMANDER',
+        'BUILTBYTIER3COMMANDER',
+        'CYBRAN',
+        --# Next line added
+        --# so this works with my slider
+        'COUNTERINTELLIGENCE',
+        'STRUCTURE',
+        'ECONOMIC',
+        'TECH1',
+        'ENERGYPRODUCTION',
+        'HYDROCARBON',
+        'SIZE12',
+        'VISIBLETORECON',
+        'RECLAIMABLE',
+        --# Next Line Added
+        'OVERLAYCOUNTERINTEL',
+        'SORTECONOMY',
+    },
+    Display = {
+        Abilities = {
+            'Adjustable Stealth Field',
+            'Small Cloak Field',
+        },
+        PauseableActiveEffects = {
+            Layers = {
+                Land = {
+                    Effects = {'/effects/emitters/hydrocarbon_smoke_01_emit.bp',},
+                    Scale = 0.5/5,
+                    ScaleCap = 0.5*5,
+                },
+                Seabed = {
+                    Effects = {'/effects/emitters/underwater_idle_bubbles_01_emit.bp',},
+                    Scale = 2/5,
+                    ScaleCap = 2*5,
+                },
+            },
+            Bones = {'Exhaust01', 'Exhaust02', 'Exhaust03', 'Exhaust04',},
+            Offset = { x=0, y=-.1, z=0},
+            LODCutoff = 50,
+        },
+    },
+    Economy = {
+        MaintenanceConsumptionPerSecondEnergy = 200,
+        ResourceDrainBreakDown = {
+            Stealth = {
+                Energy = 100,
+            },
+            Cloak = {
+                Energy = 500,
+            },
+        },
+    },
+    General = {
+        ToggleCaps = {
+            RULEUTC_StealthToggle = true,
+            RULEUTC_CloakToggle = true,
+        },
+    },
+    Intel = {
+        CloakField = true,
+        --# CloakFieldRadius values must be integer
+        --# multiples of 4. Value of 4 just cloaks the unit itself
+        CloakFieldRadius = 4,
+        CloakFieldRadiusMin = 4,
+        CloakFieldRadiusMax = 16,
+        
+        RadarStealth = true,
+        RadarStealthField = true,
+        --# These next values must be integer!!!
+        RadarStealthFieldRadius = 8,
+        RadarStealthFieldRadiusMin = 8,
+        RadarStealthFieldRadiusMax = 80,
+        ReactivateTime = 1,
+        --# Note, I chose these numbers so at max stealth 
+        --# and cloak radius the power consumption is exactly 3000
+        --# which is 3/5 the energy production cap for all HCPPs.
+    },
+}

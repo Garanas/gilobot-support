@@ -1,0 +1,35 @@
+--# Seraphim T2 Mass Extractor
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="xsb1202",
+    --# This unit has a strange animation file
+    --# where it starts and finishes in an 'up' or 'unpacked' position.
+    Display = {
+        ActiveAnimationSettings = {
+            PackedAtStart = false,
+            UpgradesFromPacked = false,
+            --UnPackedFraction = 0,
+            --PackedUpFraction = 0.125,
+            --TurnTime = 1.6,
+            --TurnRate = 1,
+        },
+    },
+    --# The commented out keys and values 
+    --# are examples of how the extra keys in the 
+    --# blueprint file work.  Note:
+    --# These only work for MeXs!!
+    --Economy = {
+        --AllowManualUpgradeAt = 21,
+        --AutoUpgradeAt = 29,
+        --InheritTimeBonus = true,
+        --MassProductionGrowthConstant = 1.02,
+        --MaxProductionPerSecondMass = 60,
+        --MaintenanceConsumptionPerSecondEnergy = 9,
+        --# These next two keys are used to stop upgrading 
+        --# from consuming too much power
+        --MaxEnergyUse = 200,
+        --MaxMassUse = 20,
+        --PassOnTimeBonus = true,
+        --ProductionPerSecondMass = 12,
+    --},
+}

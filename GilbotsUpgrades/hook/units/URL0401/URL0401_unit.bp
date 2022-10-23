@@ -1,0 +1,311 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId="url0401",
+    Display = {
+        Abilities = {
+            '<LOC ability_deploys>Deploys: Immobile While Firing',
+            'Upgradeable',
+        },
+    },
+    Economy = {
+        --# Use this so enhancements take place 
+        --# in a reasonable time.
+        BuildRate = 40,
+    },
+    Enhancements = {
+        --# This enhancement just gives a menu button 
+        --# that takes the scathis back to its original 
+        --# state.  It is needed, as FA doesn't automatically 
+        --# you buttons that remove enhancements in the in-game menu.
+        --# Normally you can only swap one enhancement for another.
+        RapidFire1 = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 1,
+            Icon = 'gilbot/scth',
+            Name = 'Rapid-Fire Artillery',
+            RateOfFireMultiplier = (1/3),
+            RateOfFireMultiplierMin = (1/6),
+            Slot = 'Back',
+            UpgradeUnitAmbientBones = {
+               'Turret_Barrel_A_Muzzle',
+               'Turret_Barrel_B_Muzzle',
+               'Turret_Barrel_C_Muzzle',
+               'Turret_Barrel_D_Muzzle',
+               'Turret_Barrel_E_Muzzle',
+               'Turret_Barrel_F_Muzzle',
+            },
+        },
+        RapidFire1Remove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 1,
+            Icon = 'gilbot/scth',
+            Name = 'Remove Rapid-Fire Artillery',
+            Slot = 'Back',
+            Prerequisite = 'RapidFire1',
+            RemoveEnhancements = {
+                'RapidFire1',
+                'RapidFire1Remove',
+            },
+        },
+        RapidFire2 = {
+            BuildCostEnergy = 50000, --1000 energy/s
+            BuildCostMass = 500, --10 energy/s
+            BuildTime = 2000, --50 seconds
+            Icon = 'gilbot/scth2',
+            Name = 'Upgraded Rapid-Fire Artillery',
+            Prerequisite = 'RapidFire1',
+            RateOfFireMultiplier = (2/3),
+            RateOfFireMultiplierMin = (1/6),
+            Slot = 'Back',
+            UpgradeUnitAmbientBones = {
+               'Turret_Barrel_A_Muzzle',
+               'Turret_Barrel_B_Muzzle',
+               'Turret_Barrel_C_Muzzle',
+               'Turret_Barrel_D_Muzzle',
+               'Turret_Barrel_E_Muzzle',
+               'Turret_Barrel_F_Muzzle',
+            },
+        },
+        RapidFire2Remove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 1,
+            Icon = 'gilbot/scth2',
+            Name = 'Remove Rapid-Fire Artillery',
+            Slot = 'Back',
+            Prerequisite = 'RapidFire2',
+            RemoveEnhancements = {
+                'RapidFire1',
+                'RapidFire2',
+                'RapidFire2Remove',
+            },
+        },
+        RapidFire3 = {
+            BuildCostEnergy = 50000, --1000 energy/s
+            BuildCostMass = 500, --10 energy/s
+            BuildTime = 2000, --50 seconds
+            Icon = 'gilbot/scth3',
+            Name = 'Ultimate Rapid-Fire Artillery',
+            Prerequisite = 'RapidFire2',
+            RateOfFireMultiplier = 1,
+            RateOfFireMultiplierMin = (1/6),
+            Slot = 'Back',
+            UpgradeUnitAmbientBones = {
+               'Turret_Barrel_A_Muzzle',
+               'Turret_Barrel_B_Muzzle',
+               'Turret_Barrel_C_Muzzle',
+               'Turret_Barrel_D_Muzzle',
+               'Turret_Barrel_E_Muzzle',
+               'Turret_Barrel_F_Muzzle',
+            },
+        },
+        RapidFire3Remove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 1,
+            Icon = 'gilbot/scth3',
+            Name = 'Remove Rapid-Fire Artillery',
+            Slot = 'Back',
+            Prerequisite = 'RapidFire3',
+            RemoveEnhancements = {
+                'RapidFire1',
+                'RapidFire2',
+                'RapidFire3',
+                'RapidFire3Remove',
+            },
+        },
+        CrawlingBombLauncher = {
+            BuildCostEnergy = 50000, --1000 energy/s
+            BuildCostMass = 1000, --20 energy/s
+            BuildTime = 2000, --50 seconds
+            Icon = 'gilbot/bmb',
+            Name = 'Crawling Bomb Launcher',
+            Damage= 0,
+            DamageRadius=1,
+            MaxRadius=330,
+            MinRadius=50,
+            ProjectileId='/mods/gilbotsupgrades/projectiles/ScathisProjectile01/ScathisProjectile01_proj.bp',
+            RateOfFireMultiplier = (1/6),
+            RateOfFireMultiplierMin = (1/12),
+            Slot = 'Back',
+            UpgradeUnitAmbientBones = {
+               'Turret_Barrel_A_Muzzle',
+               'Turret_Barrel_B_Muzzle',
+               'Turret_Barrel_C_Muzzle',
+               'Turret_Barrel_D_Muzzle',
+               'Turret_Barrel_E_Muzzle',
+               'Turret_Barrel_F_Muzzle',
+            },
+        },
+        CrawlingBombLauncherRemove = {
+            BuildCostEnergy = 5000, --500 energy/s
+            BuildCostMass = 50, --5 mass/s
+            BuildTime = 400, --10 seconds
+            Icon = 'gilbot/bmb',
+            Name = 'Remove Crawling Bomb Launcher',
+            Slot = 'Back',
+            Prerequisite = 'CrawlingBombLauncher',
+            RemoveEnhancements = {
+                'CrawlingBombLauncher',
+                'CrawlingBombLauncherRemove',
+            },
+        },
+        StunningTheftLauncher = {
+            BuildCostEnergy = 50000, --1000 energy/s
+            BuildCostMass = 1000, --20 energy/s
+            BuildTime = 2000, --50 seconds
+            Icon = 'gilbot/thft',
+            Name = 'EMP and Theftbot Launcher',
+            Damage= 0,
+            DamageRadius=1,
+            MaxRadius=330,
+            MinRadius=50,
+            ProjectileId='/mods/gilbotsupgrades/projectiles/ScathisProjectile02/ScathisProjectile02_proj.bp',
+            RateOfFireMultiplier = (1/6),
+            RateOfFireMultiplierMin = (1/12),
+            Slot = 'Back',
+            UpgradeUnitAmbientBones = {
+               'Turret_Barrel_A_Muzzle',
+               'Turret_Barrel_B_Muzzle',
+               'Turret_Barrel_C_Muzzle',
+               'Turret_Barrel_D_Muzzle',
+               'Turret_Barrel_E_Muzzle',
+               'Turret_Barrel_F_Muzzle',
+            },
+        },
+        StunningTheftLauncherRemove = {
+            BuildCostEnergy = 5000, --500 energy/s
+            BuildCostMass = 50, --5 mass/s
+            BuildTime = 400, --10 seconds
+            Icon = 'gilbot/thft',
+            Name = 'Remove EMP and Theftbot Launcher',
+            Slot = 'Back',
+            Prerequisite = 'StunningTheftLauncher',
+            RemoveEnhancements = {
+                'StunningTheftLauncher',
+                'StunningTheftLauncherRemove',
+            },
+        },
+        Slots = {
+            Back = {
+                name = 'Back',
+                x = 0,
+                y=  0,
+            },
+        },
+    },
+    SliderAdjustableValues = {
+        RateOfFire = {
+            DisplayText = 'Rate of fire',
+            BPDefaultValueLocation = {'Weapon', 1},
+            BPDefaultValueName = 'RateOfFire',
+            ResourceDrainID = nil,
+            UpdateConsumptionImmediately = false,
+        },
+    },
+    Weapon = {
+        {
+            ArtilleryShieldBlocks = true,
+            Audio = {
+                Fire = Sound {
+                    Bank = 'URLWeapon',
+                    Cue = 'URL0401_Artillery_Proton',
+                    LodCutoff = 'Weapon_LodCutoff',
+                },
+            },
+            BallisticArc = 'RULEUBA_HighArc',
+            Buffs = {
+                {
+                    Add = {
+                        VeteranLevel1 = true,
+                    },
+                    BuffType = 'DAMAGE',
+                    Value = 250,
+                },
+                {
+                    Add = {
+                        VeteranLevel3 = true,
+                    },
+                    BuffType = 'DAMAGE',
+                    Value = 250,
+                },
+            },
+            CollideFriendly = false,
+            Damage = 1000,
+            DamageFriendly = true,
+            DamageRadius = 7,
+            DamageType = 'Normal',
+            DisplayName = 'Proton Artillery',
+            EnergyChargeForFirstShot = false,
+            EnergyDrainPerSecond = 10000,
+            EnergyRequired = 10000,
+            FireTargetLayerCapsTable = {
+                Air = 'Land|Water',
+                Land = 'Land|Water',
+                Water = 'Land|Water',
+            },
+            FiringRandomness = 1.5,
+            FiringTolerance = 2,
+            Label = 'Gun01',
+            LeadTarget = true,
+            MaxRadius = 330,
+            MinRadius = 50,
+            MuzzleSalvoDelay = 0,
+            MuzzleSalvoSize = 1,
+            MuzzleVelocity = 45,
+            MuzzleVelocityReduceDistance = 325,
+            ProjectileId = '/projectiles/CIFArtilleryProton01/CIFArtilleryProton01_proj.bp',
+            ProjectileLifetime = 100,
+            ProjectilesPerOnFire = 1,
+            RackBones = {
+                {
+                    MuzzleBones = {
+                        'Turret_Aim_Barrel_Muzzle',
+                    },
+                    RackBone = 'Turret_Aim_Barrel',
+                },
+            },
+            RackFireTogether = false,
+            RackRecoilDistance = -20,
+            RackReloadTimeout = 0,
+            RackSalvoChargeTime = 0,
+            RackSalvoFiresAfterCharge = false,
+            RackSalvoReloadTime = 0,
+            RackSalvoSize = 1,
+            RackSlavedToTurret = false,
+            --# Gilbot-X: new keys added here
+            RateOfFire = 0.5,
+            RateOfFireMin = 0.1,
+            RateOfFireMax = 0.5,
+            TargetCheckInterval = 2,
+            TargetPriorities = {
+                'SPECIALHIGHPRI',
+                'COMMAND',
+                'STRUCTURE',
+                'SPECIALLOWPRI',
+                'ALLUNITS',
+            },
+            TargetRestrictDisallow = 'UNTARGETABLE',
+            TurretBoneMuzzle = 'Turret_Aim_Barrel_Muzzle',
+            TurretBonePitch = 'Turret_Aim_Barrel',
+            TurretBoneYaw = 'Turret_Aim',
+            TurretPitch = 0,
+            TurretPitchRange = 45,
+            TurretPitchSpeed = 30,
+            TurretYaw = 0,
+            TurretYawRange = 180,
+            TurretYawSpeed = 90,
+            Turreted = true,
+            WeaponCategory = 'Artillery',
+            WeaponRepackTimeout = 4,
+            WeaponUnpackAnimation = '/units/URL0401/URL0401_aopen.sca',
+            WeaponUnpackAnimationRate = 1,
+            WeaponUnpackAnimatorPrecedence = 0,
+            WeaponUnpackLocksMotion = true,
+            WeaponUnpackTimeout = 15,
+            WeaponUnpacks = true,
+        },
+    },
+}

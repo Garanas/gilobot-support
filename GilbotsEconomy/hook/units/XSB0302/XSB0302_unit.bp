@@ -1,0 +1,74 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId='xsb0302',
+    Enhancements = {
+        AdvancedEngineering = {
+            BuildCostEnergy = 36000,
+            BuildCostMass = 1440,
+            BuildTime = 1800,
+            Icon = 'aes',
+            Name = 'Increase build rate',
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'Muzzle01',
+                'Muzzle02',
+                'Muzzle03',
+            },
+            UpgradeUnitAmbientBones = {
+                'Attachpoint',
+            },
+        },
+        AdvancedEngineeringRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 0.1,
+            Icon = 'aes',
+            Name = 'Restore previous build rate',
+            Prerequisite = 'AdvancedEngineering',
+            RemoveEnhancements = {
+                'AdvancedEngineering',
+                'AdvancedEngineeringRemove',
+            },
+            Slot = 'Back',
+        },
+        AdvancedEngineering2 = {
+            BuildCostEnergy = 72000,
+            BuildCostMass = 2880,
+            BuildTime = 3600,
+            Icon = 'ees',
+            Name = 'Increase build rate',
+            Prerequisite = 'AdvancedEngineering',
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'Muzzle01',
+                'Muzzle02',
+                'Muzzle03',
+            },
+            UpgradeUnitAmbientBones = {
+                'Attachpoint',
+            },
+        },
+        AdvancedEngineering2Remove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 0.1,
+            Icon = 'ees',
+            Name = 'Restore previous build rate',
+            Prerequisite = 'AdvancedEngineering2',
+            RemoveEnhancements = {
+                'AdvancedEngineering',
+                'AdvancedEngineering2',
+                'AdvancedEngineering2Remove',
+            },
+            Slot = 'Back',
+        },
+        Slots = {
+            Back = {
+                name = '<LOC _Back>',
+                x = -2,
+                y = -5,
+            },
+        },
+    },
+    
+}

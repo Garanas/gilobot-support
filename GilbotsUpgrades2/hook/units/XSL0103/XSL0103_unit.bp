@@ -1,0 +1,153 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId="xsl0103",
+    Buffs = {
+        Regen = {
+            Level1 = 1,
+            Level2 = 2,
+            Level3 = 3,
+            Level4 = 4,
+            Level5 = 5,
+        },
+    },
+    --# Added upgradeable ability
+    Display = {
+        Abilities = {
+            'Upgradeable',
+        },
+        Mesh = {
+            IconFadeInZoom = 130,
+            LODs = {
+                {
+                    MeshName = '/Mods/GilbotsUpgrades2/hook/units/xsl0103/xsl0103_LOD0.scm',
+                },
+            },
+        },
+    },
+    Economy = {
+        --# The high build rate adjusts rate of power
+        --# used to enhance.
+        BuildRate = 10,
+    },
+    Enhancements = {
+        MaxWeaponRadius1 = {
+            BuildCostEnergy = 280,
+            BuildCostMass = 7,
+            BuildTime = 70,
+            Icon = 'gilbot/ran1',
+            Name = 'Weapon Range Bonus 1',
+            MaxWeaponRadiusMultiplier = 1.15,
+            Slot = 'LCH',
+        },
+        MaxWeaponRadius1Remove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/ran1',
+            Name = 'Remove Weapon Range Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'MaxWeaponRadius1',
+            RemoveEnhancements = {
+                'MaxWeaponRadius1',
+                'MaxWeaponRadius1Remove',
+            },
+        },
+        MaxWeaponRadius2 = {
+            BuildCostEnergy = 280,
+            BuildCostMass = 7,
+            BuildTime = 70,
+            CannotDowngradeToPrerequisites = true,
+            Icon = 'gilbot/ran2',
+            Name = 'Weapon Range Bonus 2',
+            Prerequisite = 'MaxWeaponRadius1',
+            CannotDowngradeToPrerequisites = true,
+            MaxWeaponRadiusMultiplier = 1.30,
+            Slot = 'LCH',
+        },
+        MaxWeaponRadius2Remove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/ran2',
+            Name = 'Remove Weapon Range Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'MaxWeaponRadius2',
+            RemoveEnhancements = {
+                'MaxWeaponRadius1',
+                'MaxWeaponRadius2',
+                'MaxWeaponRadius2Remove',
+            },
+        },
+        Slots = {--[[
+            Back = {
+                name = '<LOC _Back>',
+                x = 38,
+                y = -10,
+            },
+            ]]
+            LCH = {
+                name = '<LOC _LCH>',
+                x = 105,
+                y = 30,
+            },--[[
+            RCH = {
+                name = '<LOC _RCH>',
+                x = -10,
+                y = 30,
+            },]]
+        },
+    },
+    ExpeWars_Enhancement = {  
+		 {
+            WeaponMaxRadiusSet = {
+                MainGun = 40,
+            },
+            ShowBones = {
+                Object01 = true,
+            },
+		},
+        {   
+            RateOfFireBonusFactors = {
+                MainGun = 1.5,
+            },
+            ShowBones = {
+                Object02 = true,
+            },
+		},
+		{
+            WeaponDamageAdd = {
+                MainGun = 40,
+            },
+            ShowBones = {
+                Object03 = true,
+            },
+		},
+        {
+            WeaponDamageAdd = {
+                MainGun = 40,
+            },
+            ShowBones = {
+                Turret01 = true,
+            },
+		},
+		{ 
+            WeaponDamageAdd = {
+                MainGun = 40,
+            },
+            WeaponMaxRadiusSet = {
+                MainGun = 45,
+            },
+            RateOfFireBonusFactors = {
+                MainGun = 2,
+            },
+            MaxHealthAdd = 20,
+		},
+	},
+    Veteran = {
+        Level1 = 3,
+        Level2 = 6,
+        Level3 = 8,
+        Level4 = 12,
+        Level5 = 20,
+    },
+}

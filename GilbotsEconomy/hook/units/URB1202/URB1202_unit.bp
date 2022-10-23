@@ -1,0 +1,28 @@
+--# Cybran T2 Mass Extractor
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="urb1202",
+    Economy = {
+        --# Cybran can upgrade T2 MeX straight away.
+        AllowManualUpgradeAt = 12,
+        ResourceDrainBreakDown = {
+            Stealth = {
+                Energy = 50,
+                Mass = 0,
+            },
+            ProductionCosts = {
+                Energy = 9,
+                Mass = 0,
+            },
+        },
+    },
+    General = {
+        ToggleCaps = {
+            RULEUTC_StealthToggle = true,
+        },
+    },
+    Intel = {
+        RadarStealth = true,
+        ReactivateTime = 2,
+    },
+}

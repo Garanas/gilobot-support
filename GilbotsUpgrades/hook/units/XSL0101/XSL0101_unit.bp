@@ -1,0 +1,108 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId="xsl0101",
+    --# Added upgradeable ability
+    Display = {
+        Abilities = {
+            'Upgradeable',
+        },
+    },
+    Economy = {
+        --# The high build rate adjusts rate of power
+        --# used to enhance.
+        BuildRate = 10,
+        --# This is what it can build (upgrade to)
+        BuildableCategory = {
+            'xsl0101b',
+        },
+    },
+    Enhancements = {
+        Armour = {
+            BuildCostEnergy = 7*20, -- 20 energy/s
+            BuildCostMass = 7*4, -- 4 mass/s
+            BuildTime = 70,
+            Icon = 'gilbot/arm',
+            Name = 'Extra Armour',
+            MaxHealthMultiplier = 3,
+            Slot = 'Back',
+        },
+        ArmourRemove = {
+            BuildCostEnergy = 10, 
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/arm',
+            Name = 'Remove Extra Armour',
+            Slot = 'Back',
+            Prerequisite = 'Armour',
+            RemoveEnhancements = {
+                'Armour',
+                'ArmourRemove',
+            },
+        },
+        RateOfFire = {
+            BuildCostEnergy = 7*20, -- 20 energy/s
+            BuildCostMass = 7*1, -- 1 mass/s
+            BuildTime = 70,
+            Icon = 'gilbot/rof',
+            Name = 'Rate Of Fire Bonus',
+            RateOfFireMultiplier = 2,
+            Slot = 'LCH',
+        },
+        RateOfFireRemove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/rof',
+            Name = 'Remove Rate Of Fire Bonus',
+            Slot = 'LCH',
+            Prerequisite = 'RateOfFire',
+            RemoveEnhancements = {
+                'RateOfFire',
+                'RateOfFireRemove',
+            },
+        },
+        Damage = {
+            BuildCostEnergy = 7*40, -- 40 energy/s
+            BuildCostMass = 7*1, -- 1 mass/s
+            BuildTime = 70,
+            Icon = 'gilbot/dam',
+            Name = 'Weapon Damage Bonus',
+            DamageMultiplier = 4,
+            Slot = 'RCH',
+        },
+        DamageRemove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/dam',
+            Name = 'Remove Weapon Damage Bonus',
+            Slot = 'RCH',
+            Prerequisite = 'Damage',
+            RemoveEnhancements = {
+                'Damage',
+                'DamageRemove',
+            },
+        },
+ 
+        Slots = {
+            Back = {
+                name = '<LOC _Back>',
+                x = 38,
+                y = -10,
+            },
+            LCH = {
+                name = '<LOC _LCH>',
+                x = 105,
+                y = 30,
+            },
+            RCH = {
+                name = '<LOC _RCH>',
+                x = -10,
+                y = 30,
+            },
+        },
+    },
+    General = {
+        UpgradesTo = 'xsl0101b',
+    },
+}

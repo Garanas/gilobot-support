@@ -1,0 +1,78 @@
+ProjectileBlueprint {
+    Audio = {
+        Impact = Sound {
+            Bank = 'Explosions',
+            Cue = 'Explosion_Bomb',
+            LodCutoff = 'Weapon_LodCutoff',
+        },
+        NukeExplosion = Sound {
+            Bank = 'Explosions',
+            Cue = 'Cybran_Nuke_Impact',
+        },
+    },
+    Categories = {
+        'UEF',
+        'PROJECTILE',
+        'INDIRECTFIRE',
+        'STRATEGIC',
+        'MISSILE',
+    },
+    Defense = {
+        Health = 5,
+        MaxHealth = 5,
+    },
+    Display = {
+        CameraFollowTimeout = 2,
+        CameraFollowsProjectile = true,
+        ImpactEffects = {
+            Scale = 1.25,
+        },
+        Mesh = {
+            LODs = {
+                {
+                    --ShaderName = 'TMeshAlpha',
+                    --# Make it glow to see it's
+                    --# a different projectile!                    
+                    ShaderName = 'TMeshGlow',
+                },
+            },
+        },
+        StrategicIconSize = 2,
+        --# Double the missile size
+        --UniformScale = 0.15,
+        UniformScale = 0.30,
+    },
+    Economy = {
+        BuildCostEnergy = 6000,
+        BuildCostMass = 300,
+        BuildTime = 30,
+    },
+    General = {
+        Category = 'Bomb',
+        EntityCategory = {
+            'UEF',
+            'PROJECTILE',
+            'INDIRECTFIRE',
+            'STRATEGIC',
+        },
+        Weapon = 'Small Yield Nuclear Bomb',
+        --Category = 'Missile',
+        Faction = 'UEF',
+    },
+    Interface = {
+        HelpText = 0,
+    },
+    Physics = {
+        Acceleration = 1.5,
+        DestroyOnWater = true,
+        InitialSpeed = 15,
+        Lifetime = 60,
+        MaxSpeed = 20,
+        RotationalVelocity = 0,
+        RotationalVelocityRange = 0,
+        TrackTarget = true,
+        TurnRate = 0,
+        UseGravity = false,
+        VelocityAlign = true,
+    },
+}

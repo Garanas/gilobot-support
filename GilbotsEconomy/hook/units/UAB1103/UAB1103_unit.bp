@@ -1,0 +1,52 @@
+--# Aeon T1 Mass Extractor
+--# This unit has a strange animation file
+--# where it starts and finishes in an 'up' or 'unpacked' position.
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="uab1103", 
+    Defense = {
+        SensitiveShield = {
+            OwnerShieldMesh = '/mods/GilbotsModPackCore/shields/uab1103_personalshield_mesh',
+            ImpactEffects = 'AeonShieldHit01',
+            RegenAssistMult = 10,
+            ShieldMaxHealth = 1000,
+            --# Takes this long to recharge once shield
+            --# is off, regardless of shield maxhealth
+            ShieldRechargeTime = 20,  
+            --# comes back on after energy economy 
+            --# fails and then is back online
+            ShieldEnergyDrainRechargeTime = 2, 
+            --# HP per second regained 
+            --# when shield is still on
+            ShieldRegenRate = 10,  
+            --# Takes this long to start 
+            --# recharging when shield is on
+            ShieldRegenStartTime = 240,
+        },
+    },
+    Display = {
+        ActiveAnimationSettings = {
+            PackedAtStart = true,
+            UpgradesFromPacked = true,
+        },
+    },
+    --# The commented out keys and values 
+    --# are examples of how the extra keys in the 
+    --# blueprint file work.
+    Economy = {
+        --AllowManualUpgradeAt = 8,
+        --AutoUpgradeAt = 12,
+        --BuildRate = 5,
+        --MassProductionGrowthConstant = 1.05,
+        --MaxProductionPerSecondMass = 12,
+        --MaintenanceConsumptionPerSecondEnergy = 2,
+        --# These next two keys are used to stop upgrading 
+        --# from consuming too much power
+        --MaxEnergyUse = 50,
+        --MaxMassUse = 2,
+        --PassOnTimeBonus = true,
+    },
+    Intel = {
+        VisionRadius = 10,
+    },
+}

@@ -1,0 +1,43 @@
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="xsb1106", 
+    Display = {
+        --# Correct Positions of Blinking lights
+        BlinkingLights = {
+            {
+                --BLBone = 0,
+                BLOffsetX = 0,
+                BLOffsetY = 0,
+                BLOffsetZ = 0.5,
+                --BLScale = 1,
+            },
+            {
+                --BLBone = 0,
+                BLOffsetX = 0,
+                BLOffsetY = 0,
+                BLOffsetZ = -0.5,
+                --BLScale = 1,
+            },
+            {
+                --BLBone = 0,
+                BLOffsetX = -0.5,
+                BLOffsetY = 0,
+                BLOffsetZ = 0,
+                --BLScale = 1,
+            },
+            {
+                --BLBone = 0,
+                BLOffsetX = 0.5,
+                BLOffsetY = 0,
+                BLOffsetZ = 0,
+                --BLScale = 1,
+            },
+        },
+        --# Use effects that display on seabed correctly
+        BlinkingLightsFx = {
+            Green = '/effects/emitters/light_green_03_seabed_emit.bp',
+            Red = '/effects/emitters/light_red_03_seabed_emit.bp',
+            Yellow = '/effects/emitters/light_yellow_02_seabed_emit.bp',
+        },
+    },
+}

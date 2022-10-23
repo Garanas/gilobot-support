@@ -1,0 +1,15 @@
+MeshBlueprint {
+    IconFadeInZoom = 190,
+    LODs = {
+        {
+            MeshName = '/mods/gilbotsupgrades2/hook/units/uel0106/uel0106_LOD0.scm',
+            AlbedoName = '/units/uel0106/uel0106_Albedo.dds',
+            NormalsName = '/units/uel0106/uel0106_NormalsTS.dds',
+            SpecularName = '/units/uel0106/uel0106_SpecTeam.dds',
+            LookupName = '/effects/entities/PhaseShield/PhaseShieldLookup.dds',
+            LODCutoff = 200,
+            --Scrolling = true,
+            ShaderName = 'PhaseShield',
+        },
+    },
+}

@@ -1,0 +1,42 @@
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="uel0309",
+    Display = {
+        Abilities = {
+            '<LOC ability_customizable>Customizable',
+        },
+    },
+    Enhancements = {
+        Slots = {
+            Back = {
+                name = '<LOC _Back>',
+                x = -13,
+                y = -8,
+            },
+        },
+        Speed = {
+            BuildCostEnergy = 12000,  --200\sec
+            BuildCostMass = 60, -- 1\sec
+            BuildTime = 300, -- 300 Ticks = 60 secs 
+            Icon = 'gilbot/spe',
+            Name = 'Speed Upgrade',
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'UEL0309',
+            },
+        },
+        SpeedRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/spe',
+            Name = 'Remove Speed Upgrade',
+            Prerequisite = 'Speed',
+            RemoveEnhancements = {
+                'Speed',
+                'SpeedRemove',
+            },
+            Slot = 'Back',
+        },
+    },
+}

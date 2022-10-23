@@ -1,0 +1,48 @@
+--# Aeon HCPP
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="uab1102", 
+    Defense = {
+        SensitiveShield = {
+            OwnerShieldMesh = '/mods/GilbotsModPackCore/shields/uab1102_personalshield_mesh',
+            ImpactEffects = 'AeonShieldHit01',
+            RegenAssistMult = 10,
+            ShieldMaxHealth = 2880,
+            --# Takes this long to recharge once shield
+            --# is off, regardless of shield maxhealth
+            ShieldRechargeTime = 30,  
+            --# comes back on after energy economy 
+            --# fails and then is back online
+            ShieldEnergyDrainRechargeTime = 2, 
+            --# HP per second regained 
+            --# when shield is still on
+            ShieldRegenRate = 10,  
+            --# Takes this long to start 
+            --# recharging when shield is on
+            ShieldRegenStartTime = 240,
+        },
+    },
+    Display = {
+        AnimationPermOpen = false,
+        PauseableActiveEffects = {
+            Layers = {
+                Land = {
+                    Effects = {'/effects/emitters/hydrocarbon_smoke_01_emit.bp',},
+                    Scale = 0.75/5,
+                    ScaleCap = 0.75*5,                
+                },
+                Seabed = {
+                    Effects = {'/effects/emitters/underwater_idle_bubbles_01_emit.bp',},
+                    Scale =  3/5,
+                    ScaleCap =  3*5,
+                },
+            },
+            Bones = {'Extension02'},
+            Offset = { x=0, y=-.2, z=1},
+            LODCutoff = 50,
+        }
+    },
+    Intel = {
+        VisionRadius = 20,
+    },
+}

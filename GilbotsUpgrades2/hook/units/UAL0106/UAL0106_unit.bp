@@ -1,0 +1,372 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId="ual0106",
+    Buffs = {    
+        Regen = {
+            Level1 = 5,
+            Level2 = 5,
+            Level3 = 5,
+            Level4 = 5,
+            Level5 = 10,
+        },
+    }, 
+    --# Added upgradeable ability
+    Display = {
+        Abilities = {
+            'Upgradeable',
+        },
+        Mesh = {
+            LODs = {
+                {
+                    MeshName = '/Mods/GilbotsUpgrades2/hook/units/ual0106/ual0106_LOD0.scm',
+                },
+            },
+        },
+    },
+    Economy = {
+        --# The high build rate adjusts rate of power
+        --# used to enhance.
+        BuildRate = 10,
+        --# This is what it can build (upgrade to)
+        BuildableCategory = {
+            'ual0106b',
+        },
+    },
+    Enhancements = {
+        RateOfFire1 = {
+            BuildCostEnergy = 140,
+            BuildCostMass = 7,
+            BuildTime = 70,
+            Icon = 'gilbot/rof1',
+            Name = 'Rate Of Fire Bonus 1',
+            RateOfFireMultiplier = 1.5,
+            Slot = 'LCH',
+        },
+        RateOfFire1Remove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/rof1',
+            Name = 'Remove Rate Of Fire Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'RateOfFire1',
+            RemoveEnhancements = {
+                'RateOfFire1',
+                'RateOfFire1Remove',
+            },
+        },
+        RateOfFire2 = {
+            BuildCostEnergy = 140,
+            BuildCostMass = 7,
+            BuildTime = 70,
+            CannotDowngradeToPrerequisites = true,
+            Icon = 'gilbot/rof2',
+            Name = 'Rate Of Fire Bonus 2',
+            Prerequisite = 'RateOfFire1',
+            CannotDowngradeToPrerequisites = true,
+            RateOfFireMultiplier = 2,
+            Slot = 'LCH',
+        },
+        RateOfFire2Remove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/rof2',
+            Name = 'Remove Rate Of Fire Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'RateOfFire2',
+            RemoveEnhancements = {
+                'RateOfFire1',
+                'RateOfFire2',
+                'RateOfFire2Remove',
+            },
+        },
+        RateOfFire3 = {
+            BuildCostEnergy = 280,
+            BuildCostMass = 14,
+            BuildTime = 70,
+            CannotDowngradeToPrerequisites = true,
+            Icon = 'gilbot/rof3',
+            Name = 'Rate Of Fire Bonus 3',
+            Prerequisite = 'RateOfFire2',
+            CannotDowngradeToPrerequisites = true,
+            RateOfFireMultiplier = 3,
+            Slot = 'LCH',
+        },
+        RateOfFire3Remove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/rof2',
+            Name = 'Remove Rate Of Fire Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'RateOfFire3',
+            RemoveEnhancements = {
+                'RateOfFire1',
+                'RateOfFire2',
+                'RateOfFire3',
+                'RateOfFire3Remove',
+            },
+        },
+        Shield = {
+            BuildCostEnergy = 140,
+            BuildCostMass = 7,
+            BuildTime = 70,
+            Icon = 'ptsg',
+            ImpactEffects = 'UEFShieldHit01',
+            MaintenanceConsumptionPerSecondEnergy = 15,
+            Name = '<LOC enhancements_0049>Personal Shield Generator',
+            --# Shield BP start
+            ImpactEffects = 'AeonShieldHit01',
+            ImpactMesh = '/effects/entities/ShieldSection01/ShieldSection01_mesh',
+            Mesh = '/effects/entities/AeonShield01/AeonShield01_mesh',
+            MeshZ = '/effects/entities/Shield01/Shield01z_mesh',
+            PassOverkillDamage = true,
+            RegenAssistMult = 60,
+            ShieldEnergyDrainRechargeTime = 2,
+            ShieldMaxHealth = 150,
+            ShieldRechargeTime = 10,
+            ShieldRegenRate = 9,
+            ShieldRegenStartTime = 3,
+            ShieldSize = 1,
+            ShieldVerticalOffset = 0,
+            --# End of shield BP
+            Slot = 'Back',
+        },
+        ShieldRemove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'ptsg',
+            Name = '<LOC enhancements_0052>Remove Personal Shield Generator',
+            Prerequisite = 'Shield',
+            RemoveEnhancements = {
+                'Shield',
+                'ShieldRemove',
+            },
+            Slot = 'Back',
+        },
+        Slots = {
+            Back = {
+                name = '<LOC _Back>',
+                x = 38,
+                y = -10,
+            },
+            LCH = {
+                name = '<LOC _LCH>',
+                x = 105,
+                y = 30,
+            },--[[
+            RCH = {
+                name = '<LOC _RCH>',
+                x = -10,
+                y = 30,
+            },]]
+        },
+    },
+    ExpeWars_Enhancement = {
+		{
+            --# SIM will add 10% to MaxHealth
+            --# ontop of this, by default
+            --# each time veterancy level goes up.            
+            MaxHealthAdd = 50,
+		},
+		{
+            RateOfFireBonusFactors = {
+                ArmLaserTurret = 1.5,
+            },
+		},
+		{
+            WeaponDamageAdd = {
+                ArmLaserTurret = 2,
+            },
+		},
+		{
+            --# This is when the shoulder
+            --# rocket weapon is added.
+            ShowBones = {
+                Turret02 = true,
+            },
+            EnableWeapons = {
+                ArmLaserTurretMod = true,
+                ArmLaserTurretMod02 = true,
+            },
+		},
+		{
+            WeaponDamageAdd = {
+                ArmLaserTurretMod = 3,
+                ArmLaserTurretMod02 = 3,
+            },
+            RateOfFireBonusFactors = {
+                ArmLaserTurretMod = 1.25,
+                ArmLaserTurretMod02 = 1.25,
+            },
+            --# This will bring 
+            --# it up to 250.
+            MaxHealthAdd = 88,
+		},
+	},
+    General = {
+        UpgradesTo = 'ual0106b',
+    },
+    Veteran = {
+        Level1 = 1,
+        Level2 = 2,
+        Level3 = 3,
+        Level4 = 5,
+        Level5 = 10,
+    },
+    Weapon = {
+        {},
+        {
+            AboveWaterTargetsOnly = true,
+            Audio = {
+                Fire = Sound {
+                    Bank = 'UALWeapon',
+                    Cue = 'UAL0106_Pulsar_SR',
+                    LodCutoff = 'Weapon_LodCutoff',
+                },
+            },
+            BallisticArc = 'RULEUBA_LowArc',
+            CollideFriendly = false,
+            Damage = 7,
+            DamageType = 'Normal',
+            DisplayName = 'Sonic Pulsar',
+            FireTargetLayerCapsTable = {
+                Air = 'Land|Water|Seabed',
+                Land = 'Land|Water|Seabed',
+                Water = 'Land|Water|Seabed',
+            },
+            FiringTolerance = 2,
+            Label = 'ArmLaserTurretMod',
+            MaxRadius = 14,
+            MuzzleSalvoDelay = 0.1,
+            MuzzleSalvoSize = 2,
+            MuzzleVelocity = 25,
+            ProjectileId = '/projectiles/ADFLaserLight02/ADFLaserLight02_proj.bp',
+            ProjectileLifetimeUsesMultiplier = 1.15,
+            ProjectilesPerOnFire = 2,
+            RackBones = {
+                {
+                    MuzzleBones = {
+                        'Turret',
+                        'Turret_Muzzel_02',
+                        --'Turret',
+                    },
+                    RackBone = 'Turret01',
+                },
+            },
+            RackFireTogether = true,
+            RackRecoilDistance = 0,
+            RackReloadTimeout = 10,
+            RackSalvoChargeTime = 0,
+            RackSalvoReloadTime = 0,
+            RackSalvoSize = 1,
+            RackSlavedToTurret = false,
+            RangeCategory = 'UWRC_DirectFire',
+            RateOfFire = 1,
+            SlavedToBody = false,
+            TargetCheckInterval = 0.5,
+            TargetPriorities = {
+                'SPECIALHIGHPRI',
+                'TECH3 MOBILE',
+                'TECH2 MOBILE',
+                'TECH1 MOBILE',
+                'STRUCTURE DEFENSE',
+                'SPECIALLOWPRI',
+                'ALLUNITS',
+            },
+            TargetRestrictDisallow = 'UNTARGETABLE',
+            TrackingRadius = 1.15,
+            TurretBoneMuzzle = 'Turret',
+            TurretBonePitch = 'Turret01',
+            TurretBoneYaw = 'Turret01',
+            TurretDualManipulators = false,
+            TurretPitch = 0,
+            TurretPitchRange = 60,
+            TurretPitchSpeed = 180,
+            TurretYaw = 0,
+            TurretYawRange = 180,
+            TurretYawSpeed = 180,
+            Turreted = true,
+            UseFiringSolutionInsteadOfAimBone = true,
+            WeaponCategory = 'Direct Fire',
+        },
+        {
+            AboveWaterTargetsOnly = true,
+            Audio = {
+                Fire = Sound {
+                    Bank = 'UALWeapon',
+                    Cue = 'UAL0106_Pulsar_SR',
+                    LodCutoff = 'Weapon_LodCutoff',
+                },
+            },
+            BallisticArc = 'RULEUBA_LowArc',
+            CollideFriendly = false,
+            Damage = 7,
+            DamageType = 'Normal',
+            DisplayName = 'Sonic Pulsar',
+            FireTargetLayerCapsTable = {
+                Air = 'Land|Water|Seabed',
+                Land = 'Land|Water|Seabed',
+                Water = 'Land|Water|Seabed',
+            },
+            FiringTolerance = 2,
+            Label = 'ArmLaserTurretMod02',
+            MaxRadius = 14,
+            MuzzleSalvoDelay = 0.1,
+            MuzzleSalvoSize = 4,
+            MuzzleVelocity = 25,
+            ProjectileId = '/projectiles/ADFLaserLight02/ADFLaserLight02_proj.bp',
+            ProjectileLifetimeUsesMultiplier = 1.15,
+            ProjectilesPerOnFire = 4,
+            RackBones = {
+                {
+                    MuzzleBones = {
+                        'Turret',
+                        'Turret_Muzzel_02',
+						'Turret_Muzzel_03',
+						'Turret_Muzzel_04',
+                        --'Turret',
+                    },
+                    RackBone = 'Turret01',
+                },
+            },
+            RackFireTogether = true,
+            RackRecoilDistance = 0,
+            RackReloadTimeout = 10,
+            RackSalvoChargeTime = 0,
+            RackSalvoReloadTime = 0,
+            RackSalvoSize = 1,
+            RackSlavedToTurret = false,
+            RangeCategory = 'UWRC_DirectFire',
+            RateOfFire = 1,
+            SlavedToBody = false,
+            TargetCheckInterval = 0.5,
+            TargetPriorities = {
+                'SPECIALHIGHPRI',
+                'TECH3 MOBILE',
+                'TECH2 MOBILE',
+                'TECH1 MOBILE',
+                'STRUCTURE DEFENSE',
+                'SPECIALLOWPRI',
+                'ALLUNITS',
+            },
+            TargetRestrictDisallow = 'UNTARGETABLE',
+            TrackingRadius = 1.15,
+            TurretBoneMuzzle = 'Turret',
+            TurretBonePitch = 'Turret01',
+            TurretBoneYaw = 'Turret01',
+            TurretDualManipulators = false,
+            TurretPitch = 0,
+            TurretPitchRange = 60,
+            TurretPitchSpeed = 180,
+            TurretYaw = 0,
+            TurretYawRange = 180,
+            TurretYawSpeed = 180,
+            Turreted = true,
+            UseFiringSolutionInsteadOfAimBone = true,
+            WeaponCategory = 'Direct Fire',
+        },
+    },
+}

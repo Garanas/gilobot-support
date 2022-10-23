@@ -1,0 +1,70 @@
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="url0208",
+    Display = {
+        Abilities = {
+            '<LOC ability_customizable>Customizable',
+        },
+    },
+    Enhancements = {
+        CloakingGenerator = {
+            BuildCostEnergy = 150000, --# -500 
+            BuildCostMass = 3000, --# -10 
+            BuildTime = 3000, --# 5:00
+            Icon = 'pcg',
+            MaintenanceConsumptionPerSecondEnergy = 1000,
+            Name = '<LOC enhancements_0079>Personal Cloaking Generator',
+            Prerequisite = 'StealthGenerator',
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'Buildpoint_Center',
+            },
+        },
+        CloakingGeneratorRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 1,
+            Icon = 'pcg',
+            Name = '<LOC enhancements_0080>Remove Personal Cloaking Generator',
+            Prerequisite = 'CloakingGenerator',
+            RemoveEnhancements = {
+                'StealthGenerator',
+                'CloakingGenerator',
+                'CloakingGeneratorRemove',
+            },
+            Slot = 'Back',
+        },
+        Slots = {
+            Back = {
+                name = '<LOC _Back>',
+                x = 0,
+                y = -10,
+            },
+        },
+        StealthGenerator = {
+            BuildCostEnergy = 5250, --# 100% of ACU cost -75
+            BuildCostMass = 350,  --# -5
+            BuildTime = 700,  -- same build time as T1 and ACU
+            Icon = 'psg',
+            MaintenanceConsumptionPerSecondEnergy = 50, --# Same as ACU
+            Name = '<LOC enhancements_0101>Personal Stealth Generator',
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'Buildpoint_Center',
+            },
+        },
+        StealthGeneratorRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'psg',
+            Name = '<LOC enhancements_0102>Remove Personal Stealth Generator',
+            Prerequisite = 'StealthGenerator',
+            RemoveEnhancements = {
+                'StealthGenerator',
+                'StealthGeneratorRemove',
+            },
+            Slot = 'Back',
+        },
+    },
+}

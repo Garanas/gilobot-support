@@ -1,0 +1,11 @@
+MeshBlueprint {
+    IconFadeInZoom = 100,
+    LODs = {
+        {
+            MeshName = '/mods/GilbotsModPackCore/units/gab5101/gab5101_LOD0.scm',
+            LookupName = '/effects/entities/PhaseShield/PhaseShieldLookup.dds',
+            LODCutoff = 100,
+            ShaderName = 'PhaseShield',
+        },
+    },
+}

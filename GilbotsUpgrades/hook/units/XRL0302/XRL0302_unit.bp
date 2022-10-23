@@ -1,0 +1,205 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId="xrl0302",
+    --# Added upgradeable ability
+    Buffs = {
+        {
+            --# See line 3017 in unit.lua for code on using stun
+            --# Use OnDeath or OnFire as appropriate 
+            Add = {
+                OnDeath = true,
+            },
+            --# Can't find this field anywhere
+            AppliedToTarget = true,
+            BuffType = 'STUN',
+            Duration = 5,
+            --# Setting radius to 0 makes it stun itself!!  Why do that?
+            --# See lines 3018 and 3037 to 3040 in unit.lua for code
+            Radius = 30,
+            --# These next two lines tell the unit to stun everything
+            --# See line 3031 to 3035 in unit.lua for code 
+            TargetAllow = 'MOBILE,STRUCTURE,DIRECTFIRE',
+            TargetDisallow = 'EXPERIMENTAL,COMMAND',
+        },
+    },
+    Display = {
+        Abilities = {
+            'Upgradeable',
+        },
+    },
+    Economy = {
+        --# The high build rate adjusts rate of power
+        --# used to enhance.
+        BuildRate = 10,
+    },
+    Enhancements = {
+        Nuke = {
+            BuildCostEnergy = 30000, --300 energy
+            BuildCostMass = 700, --7 mass
+            BuildTime = 1000, --100 seconds
+            Icon = 'gilbot/nka',
+            Name = 'Nuclear Payload',
+            UnitId = 'xrl0302b',
+            Slot = 'LCH',
+        },
+        EMP = {
+           BuildCostEnergy = 3000, --100 energy
+            BuildCostMass = 60, -- 2 mass
+            BuildTime = 300, --30 seconds
+            Icon = 'gilbot/stu',
+            Name = 'EMP Payload',
+            Slot = 'LCH',
+        },
+        EMPRemove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/stu',
+            Name = 'Remove EMP Payload',
+            Prerequisite = 'EMP',
+            RemoveEnhancements = {
+                'EMP',
+                'EMPRemove',
+            },
+            Slot = 'LCH',
+        },
+        Flare = {
+            BuildCostEnergy = 1000, --100 energy
+            BuildCostMass = 10, -- 1 mass
+            BuildTime = 100, -- 10 seconds
+            Icon = 'gilbot/fla',
+            Name = 'Flare Payload',
+            Slot = 'LCH',
+        },
+        FlareRemove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/fla',
+            Name = 'Remove Flare Payload',
+            Prerequisite = 'Flare',
+            RemoveEnhancements = {
+                'Flare',
+                'FlareRemove',
+            },
+            Slot = 'LCH',
+        },
+        Cloak = {
+            BuildCostEnergy = 500, --50 energy
+            BuildCostMass = 10, --1 mass
+            BuildTime = 100, --10 seconds
+            Icon = 'pcg',
+            MaintenanceConsumptionPerSecondEnergy = 30,
+            Name = '<LOC enhancements_0079>Personal Cloaking Generator',
+            Slot = 'Back',
+        },
+        CloakRemove = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'pcg',
+            Name = '<LOC enhancements_0080>Remove Personal Cloaking Generator',
+            Prerequisite = 'Cloak',
+            RemoveEnhancements = {
+                'Cloak',
+                'CloakRemove',
+            },
+            Slot = 'Back',
+        },
+        Slots = {
+            Back = {
+                name = '<LOC _Back>',
+                x = 38,
+                y = -10,
+            },
+            LCH = {
+                name = '<LOC _LCH>',
+                x = 105,
+                y = 30,
+            },--[[
+            RCH = {
+                name = '<LOC _RCH>',
+                x = -10,
+                y = 30,
+            },]]
+        },
+    },
+    General = {
+        OrderOverrides = {
+            RULEUTC_WeaponToggle = {
+                bitmapId = 'auto-toggle',
+                helpText = 'toggle_auto_toggle',
+            },
+        },
+        UpgradesTo = 'xrl0302b',
+    },
+    Intel = {
+        Cloak = true,
+        RadarStealth = true,
+        ReactivateTime=1,
+        StealthWaitTime = 1,
+    },
+    Weapon = {
+        {
+            AboveWaterTargetsOnly = true,
+            CollideFriendly = false,
+            Damage = 1200,
+            DamageFriendly = true,
+            DamageRadius = 6,
+            DamageType = 'Normal',
+            DisplayName = 'Suicide',
+            FireTargetLayerCapsTable = {
+                Air = 'Land|Water|Seabed',
+                Land = 'Land|Water|Seabed',
+                Water = 'Land|Water|Seabed',
+            },
+            FiringTolerance = 2,
+            Label = 'Suicide',
+            MaxRadius = 4,
+            TargetCheckInterval = 1,
+            TargetPriorities = {
+                'SPECIALHIGHPRI',
+                'MOBILE',
+                'STRUCTURE DEFENSE',
+                'SPECIALLOWPRI',
+                'ALLUNITS',
+            },
+            TargetRestrictDisallow = 'UNTARGETABLE',
+            Turreted = false,
+            WeaponCategory = 'Kamikaze',
+        },
+        {
+            Accurate = true,
+            BallisticArc = 'RULEUBA_None',
+            CollideFriendly = false,
+            Damage = 1,
+            DamageFriendly = false,
+            DamageRadius = 1,
+            DamageType = 'EMP',
+            DisplayName = 'EMP',
+            FireTargetLayerCapsTable = {
+                Air = 'Air|Land|Water',
+                Land = 'Air|Land|Water',
+                Water = 'Air|Land|Water',
+            },
+            FiringTolerance = 360,
+            Label = 'EMP',
+            MaxRadius = 3,
+            MuzzleVelocity = 0,
+            ProjectileId = '/projectiles/CIFEMP01/CIFEMP01_proj.bp',
+            RackBones = {
+                {
+                    MuzzleBones = {
+                        0,
+                    },
+                    RackBone = 0,
+                },
+            },
+            RateOfFire = 1,
+            SalvoSize = 1,
+            SlavedToBody = true,
+            TargetCheckInterval = 1,
+            TargetRestrictDisallow = 'UNTARGETABLE',
+        },
+    },
+}

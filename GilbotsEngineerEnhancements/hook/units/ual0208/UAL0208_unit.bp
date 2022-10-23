@@ -1,0 +1,35 @@
+UnitBlueprint {
+    Merge = true,
+    BlueprintId="ual0208",
+    Display = {
+        Abilities = {
+            '<LOC ability_customizable>Customizable',
+        },
+    },
+    Economy = {
+        TeleportEnergyMod = 20,   -- approx 50 seconds
+        TeleportMassMod = 0,
+        TeleportTimeMod = 0.001,  -- 1000 Energy per second
+    },
+    Enhancements = {
+        Slots = {
+            Back = {
+                name = '<LOC _Back>',
+                x = -13,
+                y = -8,
+            },
+        },
+        Teleporter = {
+            BuildCostEnergy = 120000, -- 2000 energy/sec
+            BuildCostMass = 600,  -- 10 mass/sec 
+            BuildTime = 600, -- 600 Ticks at double rate = 1:00
+            Icon = 'pqt',
+            MaintenanceConsumptionPerSecondEnergy = 1000,
+            Name = 'Personal Teleporter',
+            Slot = 'Back',
+            UpgradeEffectBones = {
+                'UAL0208',
+            },
+        },
+    },
+}

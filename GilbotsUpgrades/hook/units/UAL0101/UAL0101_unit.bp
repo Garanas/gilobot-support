@@ -1,0 +1,205 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId="ual0101",
+    --# Added upgradeable ability
+    Display = {
+        Abilities = {
+            'Upgradeable',
+        },
+    },
+    Economy = {
+        --# The high build rate adjusts rate of power
+        --# used to enhance.
+        BuildRate = 5,
+        --# This is what it can build (upgrade to)
+        BuildableCategory = {
+            'ual0101b',
+        },
+    },
+    Enhancements = {
+        Damage1 = {
+            BuildCostEnergy = 200,  --20\sec
+            BuildCostMass = 10, -- 1\sec
+            BuildTime = 50, -- 100 Ticks = 10 secs 
+            Icon = 'gilbot/dam1',
+            Name = 'Weapon Damage Bonus 1',
+            DamageMultiplier = 2,
+            Slot = 'RCH',
+        },
+        DamageRemove1 = {
+            BuildCostEnergy = 10,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/dam1',
+            Name = 'Remove Weapon Damage Bonus',
+            Slot = 'RCH',
+            Prerequisite = 'Damage1',
+            RemoveEnhancements = {
+                'Damage1',
+                'DamageRemove1',
+            },
+        },
+        Damage2 = {
+            BuildCostEnergy = 400,  --40\sec
+            BuildCostMass = 10, -- 1\sec
+            BuildTime = 50, -- 100 Ticks = 10 secs 
+            CannotDowngradeToPrerequisites = true,
+            Icon = 'gilbot/dam2',
+            Name = 'Weapon Damage Bonus 2',
+            DamageMultiplier = 4,
+            Prerequisite = 'Damage1',
+            Slot = 'RCH',
+        },
+        DamageRemove2 = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 1,
+            Icon = 'gilbot/dam2',
+            Name = 'Remove Weapon Damage Bonus',
+            Slot = 'RCH',
+            Prerequisite = 'Damage2',
+            RemoveEnhancements = {
+                'Damage2',
+                'DamageRemove2',
+            },
+        },
+        Damage3 = {
+            BuildCostEnergy = 1000,  --100\sec
+            BuildCostMass = 10, -- 1\sec
+            BuildTime = 50, -- 100 Ticks = 10 secs 
+            CannotDowngradeToPrerequisites = true,
+            Icon = 'gilbot/dam3',
+            Name = 'Weapon Damage Bonus 3',
+            DamageMultiplier = 10,
+            Prerequisite = 'Damage2',
+            Slot = 'RCH',
+        },
+        DamageRemove3 = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 1,
+            Icon = 'gilbot/dam3',
+            Name = 'Remove Weapon Damage Bonus',
+            Slot = 'RCH',
+            Prerequisite = 'Damage3',
+            RemoveEnhancements = {
+                'Damage3',
+                'DamageRemove3',
+            },
+        },
+        RateOfFire1 = {
+            BuildCostEnergy = 200,  --20\sec
+            BuildCostMass = 10, -- 1\sec
+            BuildTime = 50, -- 100 Ticks = 10 secs 
+            Icon = 'gilbot/rfb1',
+            Name = 'Rate Of Fire Bonus 1',
+            RateOfFireMultiplier = 2,
+            Slot = 'LCH',
+        },
+        RateOfFire1Remove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 1,
+            Icon = 'gilbot/rfb1',
+            Name = 'Remove Rate Of Fire Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'RateOfFire1',
+            RemoveEnhancements = {
+                'RateOfFire1',
+                'RateOfFire1Remove',
+            },
+        },
+        RateOfFire2 = {
+            BuildCostEnergy = 400,  --40\sec
+            BuildCostMass = 10, -- 1\sec
+            BuildTime = 50, -- 100 Ticks = 10 secs 
+            Icon = 'gilbot/rfb2',
+            Name = 'Rate Of Fire Bonus 2',
+            Prerequisite = 'RateOfFire1',
+            RateOfFireMultiplier = 4,
+            Slot = 'LCH',
+        },
+        RateOfFire2Remove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 1,
+            Icon = 'gilbot/rfb2',
+            Name = 'Remove Rate Of Fire Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'RateOfFire2',
+            RemoveEnhancements = {
+                'RateOfFire1',
+                'RateOfFire2',
+                'RateOfFire2Remove',
+            },
+        },
+        RateOfFire3 = {
+            BuildCostEnergy = 1200,  --120\sec
+            BuildCostMass = 10, -- 1\sec
+            BuildTime = 50, -- 100 Ticks = 10 secs 
+            Icon = 'gilbot/rfb3',
+            Name = 'Rate Of Fire Bonus 3',
+            Prerequisite = 'RateOfFire2',
+            RateOfFireMultiplier = 12,
+            Slot = 'LCH',
+        },
+        RateOfFire3Remove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 1,
+            Icon = 'gilbot/rfb2',
+            Name = 'Remove Rate Of Fire Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'RateOfFire3',
+            RemoveEnhancements = {
+                'RateOfFire1',
+                'RateOfFire2',
+                'RateOfFire3',
+                'RateOfFire3Remove',
+            },
+        },
+        Speed = {
+            BuildCostEnergy = 500,  --50\sec
+            BuildCostMass = 10, -- 1\sec
+            BuildTime = 50, -- 100 Ticks = 10 secs 
+            Icon = 'gilbot/spe',
+            Name = 'Speed Upgrade',
+            SpeedMultiplier = 1.5,
+            NewElevation=0.25,
+            Slot = 'Back',
+        },
+        SpeedRemove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 10,
+            Icon = 'gilbot/spe',
+            Name = 'Remove Speed Upgrade',
+            Prerequisite = 'Speed',
+            RemoveEnhancements = {
+                'Speed',
+                'SpeedRemove',
+            },
+            Slot = 'Back',
+        },
+        Slots = {
+            Back = {
+                name = '<LOC _Back>',
+                x = 38,
+                y = -10,
+            },
+            LCH = {
+                name = '<LOC _LCH>',
+                x = 105,
+                y = 30,
+            },
+            RCH = {
+                name = '<LOC _RCH>',
+                x = -10,
+                y = 30,
+            },
+        },
+    },
+    General = {
+        UpgradesTo = 'ual0101b',
+    },
+}

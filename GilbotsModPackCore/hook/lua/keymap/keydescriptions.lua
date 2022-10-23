@@ -1,0 +1,10 @@
+keyDescriptions['create_slider'] = 'Show Slider Controls'
+keyDescriptions['decrease_autotoggle_priority'] = "Decreases the unit's auto-toggle priority order"
+keyDescriptions['increase_autotoggle_priority'] = "Increases its auto-toggle priority order"
+keyDescriptions['decrease_autotoggle_priority_class'] = "Decreases the unit's auto-toggle priority class"
+keyDescriptions['increase_autotoggle_priority_class'] = "Increases its auto-toggle priority class"
+keyDescriptions['show_autotoggle_priorities'] = 'Toggles display of auto-toggle priority numbers'
+keyDescriptions['show_network_id'] = 'Toggles display of network ID numbers'
+keyDescriptions['show_entity_id'] = 'Flashes display of entity ID numbers on selected units'  
+keyDescriptions['show_shield_strength'] = 'Flashes display of shield strength on selected shield units'  
+keyDescriptions['toggle_extra_alt_order_buttons'] = 'Shows the extra order buttons when there are too many for the UI to dispaly at once.'  

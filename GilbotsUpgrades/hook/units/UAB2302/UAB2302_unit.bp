@@ -1,0 +1,187 @@
+UnitBlueprint {
+    Merge=true,
+    BlueprintId="uab2302",
+    --# Added upgradeable ability
+    Display = {
+        Abilities = {
+            'Upgradeable',
+        },
+    },
+    Economy = {
+        --# Reduce these and split difference
+        --# between the enhancements
+        BuildCostEnergy = 915000*0.6,
+        BuildCostMass = 91500*0.6,
+        BuildTime = 30500*0.6,
+        --# The high build rate adjusts rate of power
+        --# used to enhance.
+        BuildRate = 20,
+    },
+    Enhancements = {
+        MaxWeaponRadius1 = {
+            BuildCostEnergy = 183000,
+            BuildCostMass = 18300,
+            BuildTime = 6100,
+            Icon = 'gilbot/aran1',
+            Name = 'Weapon Range Bonus 1',
+            MaxWeaponRadiusMultiplier = 1.5,
+            Slot = 'LCH',
+        },
+        MaxWeaponRadius1Remove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 1,
+            Icon = 'gilbot/aran1',
+            Name = 'Remove Weapon Range Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'MaxWeaponRadius1',
+            RemoveEnhancements = {
+                'MaxWeaponRadius1',
+                'MaxWeaponRadius1Remove',
+            },
+        },
+        MaxWeaponRadius2 = {
+            BuildCostEnergy = 183000,
+            BuildCostMass = 18300,
+            BuildTime = 6100,
+            CannotDowngradeToPrerequisites = true,
+            Icon = 'gilbot/aran2',
+            Name = 'Weapon Range Bonus 2',
+            Prerequisite = 'MaxWeaponRadius1',
+            MaxWeaponRadiusMultiplier = 2,
+            Slot = 'LCH',
+        },
+        MaxWeaponRadius2Remove = {
+            BuildCostEnergy = 1,
+            BuildCostMass = 1,
+            BuildTime = 1,
+            Icon = 'gilbot/aran2',
+            Name = 'Remove Weapon Range Bonuses',
+            Slot = 'LCH',
+            Prerequisite = 'MaxWeaponRadius2',
+            RemoveEnhancements = {
+                'MaxWeaponRadius1',
+                'MaxWeaponRadius2',
+                'MaxWeaponRadius2Remove',
+            },
+        },
+        Slots = {--[[
+            Back = {
+                name = '<LOC _Back>',
+                x = 38,
+                y = -10,
+            },
+            ]]
+            LCH = {
+                name = '<LOC _LCH>',
+                x = 105,
+                y = 30,
+            },--[[
+            RCH = {
+                name = '<LOC _RCH>',
+                x = -10,
+                y = 30,
+            },]]
+        },
+    },
+    Weapon = {
+        {
+            AboveWaterTargetsOnly = true,
+            ArtilleryShieldBlocks = true,
+            Audio = {
+                BarrelLoop = Sound {
+                    Bank = 'UAB',
+                    Cue = 'UAB2302_Turret_Loop',
+                    LodCutoff = 'WeaponBig_LodCutoff',
+                },
+                BarrelStart = Sound {
+                    Bank = 'UAB',
+                    Cue = 'UAB2302_Turret_Start',
+                    LodCutoff = 'WeaponBig_LodCutoff',
+                },
+                Fire = Sound {
+                    Bank = 'UALWeapon',
+                    Cue = 'UAB2302_Artillery_Sonance',
+                    LodCutoff = 'Weapon_LodCutoff',
+                },
+                MuzzleChargeStart = Sound {
+                    Bank = 'UALWeapon',
+                    Cue = 'UAB2302_Artillery_Son_Charge',
+                    LodCutoff = 'Weapon_LodCutoff',
+                },
+            },
+            BallisticArc = 'RULEUBA_HighArc',
+            CameraShakeDuration = 0.5,
+            CameraShakeMax = 2,
+            CameraShakeMin = 0,
+            CameraShakeRadius = 50,
+            CollideFriendly = false,
+            Damage = 6000,
+            DamageFriendly = true,
+            DamageRadius = 4,
+            DamageType = 'Normal',
+            DisplayName = 'Sonance Artillery',
+            DoTPulses = 2,
+            DoTTime = 2,
+            EnergyDrainPerSecond = 4250,
+            EnergyRequired = 8500,
+            FireTargetLayerCapsTable = {
+                Land = 'Land|Water|Seabed',
+                Water = 'Land|Water|Seabed',
+            },
+            FiringRandomness = 0.375,
+            FiringTolerance = 2,
+            Label = 'MainGun',
+            --# Reduced this
+            MaxRadius = 900*0.5,
+            MinRadius = 150,
+            MuzzleChargeDelay = 2.5,
+            MuzzleSalvoDelay = 0,
+            MuzzleSalvoSize = 1,
+            MuzzleVelocity = 65,
+            MuzzleVelocityReduceDistance = 750,
+            ProjectileId = '/projectiles/AIFSonanceShell02/AIFSonanceShell02_proj.bp',
+            ProjectileLifetime = 120,
+            ProjectilesPerOnFire = 1,
+            RackBones = {
+                {
+                    MuzzleBones = {
+                        'Turret_Muzzle',
+                    },
+                    RackBone = 'Turret_B01',
+                },
+            },
+            RackFireTogether = false,
+            RackRecoilDistance = -6,
+            RackReloadTimeout = 0,
+            RackSalvoChargeTime = 0,
+            RackSalvoFiresAfterCharge = false,
+            RackSalvoReloadTime = 0,
+            RackSalvoSize = 1,
+            RackSlavedToTurret = false,
+            RangeCategory = 'UWRC_IndirectFire',
+            RateOfFire = 0.05,
+            RenderFireClock = true,
+            TargetCheckInterval = 15,
+            TargetPriorities = {
+                'SPECIALHIGHPRI',
+                'STRUCTURE',
+                'SPECIALLOWPRI',
+                'ALLUNITS',
+            },
+            TargetRestrictDisallow = 'UNTARGETABLE',
+            TurretBoneMuzzle = 'Turret_Muzzle',
+            TurretBonePitch = 'Turret_B01',
+            TurretBoneYaw = 'Turret',
+            TurretDualManipulators = false,
+            TurretPitch = 30,
+            TurretPitchRange = 45,
+            TurretPitchSpeed = 3,
+            TurretYaw = 0,
+            TurretYawRange = 180,
+            TurretYawSpeed = 3,
+            Turreted = true,
+            WeaponCategory = 'Artillery',
+        },
+    },
+}
