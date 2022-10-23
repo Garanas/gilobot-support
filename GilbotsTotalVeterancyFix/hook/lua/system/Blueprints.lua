@@ -27,10 +27,6 @@ local function TotalVeterancyMods(all_bps)
 	local once = true
     for id,bp in all_bps.Unit do
 
-		if not bp.Defense then
-			reprsl(bp)
-		end
-
 		bp.Defense = bp.Defense or { }
 		if bp.Defense.RegenRate == nil then
     		bp.Defense.RegenRate = 0
